@@ -1,0 +1,391 @@
+{
+  "page_layout": {
+    "sketch": "C",
+    "name": "Triage Inbox",
+    "intent": "One queue, one record, one decision, then the next record.",
+    "canvas": { "width": 1280, "height": 820 },
+    "tokens": "c.tokens.json",
+    "notation": {
+      "region": "identifier of the region, unique in this file",
+      "role": "what the region is for, in one phrase",
+      "direction": "row or column, the axis its children are laid on",
+      "align": "cross-axis alignment of its children: start, center or stretch",
+      "padding": "inset, as block and inline token paths into c.tokens.json",
+      "gap": "space between its children, as a token path, or 0 when they abut",
+      "grow": "fixed with a width token, or fill to take the remaining space",
+      "collapse_at": "viewport width at or below which the region changes shape",
+      "collapse_behaviour": "what the region does at that width",
+      "rtl_mirrors": "true when the region's own child order flips right to left",
+      "children": "nested regions, in reading order for a left-to-right page"
+    },
+    "regions": {
+      "region": "page",
+      "role": "the whole page, edge to edge, no top bar",
+      "direction": "row",
+      "align": "stretch",
+      "padding": null,
+      "gap": 0,
+      "grow": "fill",
+      "rtl_mirrors": true,
+      "children": [
+        {
+          "region": "rail",
+          "role": "named queues with their counts, one selected",
+          "direction": "column",
+          "align": "stretch",
+          "padding": { "block": "space.16", "inline": "space.12" },
+          "gap": "space.4",
+          "grow": { "fixed": "size.rail.width" },
+          "scroll": "vertical, independent of the other columns",
+          "collapse_at": "1100px",
+          "collapse_behaviour": "drops out of the row and returns as a queue picker above the list",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "rail_brand",
+              "role": "application name",
+              "direction": "row",
+              "align": "center",
+              "padding": null,
+              "gap": 0,
+              "grow": "fixed",
+              "rtl_mirrors": true
+            },
+            {
+              "region": "rail_queue_row",
+              "role": "one queue: marker, label, leader, count",
+              "direction": "row",
+              "align": "center",
+              "padding": { "block": "space.7", "inline": "space.10" },
+              "gap": "space.8",
+              "grow": { "fixed": "size.rail.row.height" },
+              "repeats": true,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "rail_queue_marker",
+                  "role": "status dot",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": { "fixed": "size.rail.row.dot" },
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "rail_queue_label",
+                  "role": "queue name",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "rail_queue_leader",
+                  "role": "hairline that stretches between the label and the count",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fill",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "rail_queue_count",
+                  "role": "number of records in the queue",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "region": "list",
+          "role": "records of the selected queue, one row each",
+          "direction": "column",
+          "align": "stretch",
+          "padding": null,
+          "gap": 0,
+          "grow": { "fixed": "size.list.width" },
+          "scroll": "vertical, independent of the other columns",
+          "collapse_at": "900px",
+          "collapse_behaviour": "takes the full width and the record pane moves to a second view reached by opening a row",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "list_search",
+              "role": "filter the rows of this queue",
+              "direction": "row",
+              "align": "stretch",
+              "padding": { "block": "space.12", "inline": "space.12" },
+              "gap": 0,
+              "grow": { "fixed": "size.list.header" },
+              "rtl_mirrors": false
+            },
+            {
+              "region": "list_row",
+              "role": "one record: accent, two lines, status pill",
+              "direction": "row",
+              "align": "center",
+              "padding": { "block": "space.10", "inline": "space.12" },
+              "gap": "space.10",
+              "grow": { "fixed": "size.list.row.height" },
+              "repeats": true,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "list_row_accent",
+                  "role": "selection bar, darker on the selected row",
+                  "direction": "column",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": { "fixed": "size.list.row.accent.width" },
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "list_row_text",
+                  "role": "subject over a weaker second line",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": null,
+                  "gap": "space.5",
+                  "grow": "fill",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "list_row_status",
+                  "role": "status pill",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": { "fixed": "size.pill.height" },
+                  "rtl_mirrors": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "region": "record",
+          "role": "the selected record, read and decided in place",
+          "direction": "column",
+          "align": "stretch",
+          "padding": null,
+          "gap": 0,
+          "grow": "fill",
+          "min_width": "size.record.min",
+          "scroll": "vertical, independent of the other columns",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "record_header",
+              "role": "title and the facts checked before deciding",
+              "direction": "column",
+              "align": "start",
+              "padding": { "block": { "start": "space.24", "end": "space.20" }, "inline": "space.28" },
+              "gap": "space.8",
+              "grow": { "fixed": "size.record.header" },
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "record_title",
+                  "role": "record name",
+                  "direction": "row",
+                  "align": "start",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "record_chips",
+                  "role": "status, owner, date as small pills",
+                  "direction": "row",
+                  "align": "start",
+                  "padding": null,
+                  "gap": "space.8",
+                  "grow": "fixed",
+                  "rtl_mirrors": true
+                }
+              ]
+            },
+            {
+              "region": "record_fields",
+              "role": "the fields that bear on the decision, two columns deep",
+              "direction": "column",
+              "align": "stretch",
+              "padding": { "block": { "start": "space.20", "end": 0 }, "inline": "space.28" },
+              "gap": 0,
+              "grow": "fixed",
+              "rtl_mirrors": false,
+              "children": [
+                {
+                  "region": "record_field_row",
+                  "role": "two fields side by side",
+                  "direction": "row",
+                  "align": "start",
+                  "padding": { "block": "space.9", "inline": 0 },
+                  "gap": "space.16",
+                  "grow": { "fixed": "size.record.field" },
+                  "repeats": true,
+                  "rtl_mirrors": true,
+                  "children": [
+                    {
+                      "region": "record_field",
+                      "role": "label over value",
+                      "direction": "column",
+                      "align": "start",
+                      "padding": null,
+                      "gap": "space.6",
+                      "grow": "fill",
+                      "repeats": true,
+                      "rtl_mirrors": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "region": "record_history",
+              "role": "what happened to this record, set back on a quieter ground",
+              "direction": "column",
+              "align": "stretch",
+              "padding": { "block": { "start": "space.8", "end": "space.20" }, "inline": "space.28" },
+              "gap": "space.10",
+              "grow": "fixed",
+              "rtl_mirrors": false,
+              "children": [
+                {
+                  "region": "record_history_heading",
+                  "role": "band label",
+                  "direction": "row",
+                  "align": "start",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "record_history_line",
+                  "role": "one event: marker and its text",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": "space.10",
+                  "grow": "fixed",
+                  "repeats": true,
+                  "rtl_mirrors": true
+                }
+              ]
+            },
+            {
+              "region": "record_actions",
+              "role": "the decision, in one place, above a hairline",
+              "direction": "row",
+              "align": "center",
+              "padding": { "block": "space.16", "inline": "space.28" },
+              "gap": "space.10",
+              "grow": { "fixed": "size.record.actions" },
+              "border": { "width": "border.hairline", "color": "color.line.divider" },
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "action_primary",
+                  "role": "the decision the queue exists for",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": { "block": "space.9", "inline": "space.18" },
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "action_secondary",
+                  "role": "the other outcomes",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": { "block": "space.9", "inline": "space.14" },
+                  "gap": 0,
+                  "grow": "fixed",
+                  "repeats": true,
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "action_spacer",
+                  "role": "pushes the hint to the far end",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fill",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "action_hint",
+                  "role": "the keys that move to the next record",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": null,
+                  "gap": 0,
+                  "grow": "fixed",
+                  "rtl_mirrors": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "narrow_screen": [
+      {
+        "collapse_at": "1100px",
+        "regions": ["rail"],
+        "collapse_behaviour": "the rail leaves the row; its queues return as a picker above the list, keeping their counts"
+      },
+      {
+        "collapse_at": "900px",
+        "regions": ["list", "record"],
+        "collapse_behaviour": "the two stop sharing the row; the list fills the page and the record becomes a second view, so record_actions gains a way back to the list"
+      },
+      {
+        "collapse_at": "700px",
+        "regions": ["record_field_row"],
+        "collapse_behaviour": "the two field columns stack into one, so record_field_row becomes a column"
+      }
+    ],
+    "rtl": {
+      "mirrors": [
+        "page: the column order reverses, rail at the right edge, record at the left",
+        "rail_queue_row: marker leads at the right, count pins to the left, leader still fills",
+        "list_row: accent moves to the right edge, status pill to the left end",
+        "record_chips: chips run right to left",
+        "record_field_row: the two field columns swap",
+        "record_history_line: marker leads at the right, text stretches leftward",
+        "record_actions: primary at the right, hint at the left"
+      ],
+      "does_not_mirror": [
+        "every block padding, band height, row height and gap",
+        "radius, border width, colour and type size",
+        "marker dots, status pills and chips, which are symmetric",
+        "action_hint: the key names keep their own left-to-right run inside the mirrored bar",
+        "counts and record identifiers, which keep their own internal direction"
+      ],
+      "frappe_hooks": [
+        "frappe/public/js/frappe/utils/utils.js:1059",
+        "frappe/public/scss/desk/global.scss:551",
+        "frappe/esbuild/esbuild.js:232",
+        "frappe/public/js/frappe/assets.js:129",
+        "frappe/public/js/frappe/form/toolbar.js:322"
+      ]
+    }
+  }
+}

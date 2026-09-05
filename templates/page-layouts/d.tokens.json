@@ -1,0 +1,235 @@
+{
+  "$description": "Design tokens decided by layout sketch D, Command Console. Only values the sketch itself fixes appear here.",
+  "font": {
+    "$description": "One family, two weights, five steps.",
+    "family": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": ["Inter", "system-ui", "sans-serif"]
+      }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "semibold": { "$type": "fontWeight", "$value": 600 }
+    },
+    "size": {
+      "meta": {
+        "$type": "dimension",
+        "$value": "9px",
+        "$description": "Group count on the trailing edge of a group header."
+      },
+      "label": {
+        "$type": "dimension",
+        "$value": "10px",
+        "$description": "Group header label naming the state being waited on."
+      },
+      "command": {
+        "$type": "dimension",
+        "$value": "11px",
+        "$description": "Command label inside the palette."
+      },
+      "title": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Page breadcrumb in the header."
+      },
+      "input": {
+        "$type": "dimension",
+        "$value": "13px",
+        "$description": "Palette input line and its placeholder."
+      }
+    }
+  },
+  "type": {
+    "$description": "The five composite styles the sketch uses.",
+    "page-title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter", "system-ui", "sans-serif"],
+        "fontSize": "12px",
+        "fontWeight": 600
+      }
+    },
+    "group-label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter", "system-ui", "sans-serif"],
+        "fontSize": "10px",
+        "fontWeight": 600
+      }
+    },
+    "group-count": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter", "system-ui", "sans-serif"],
+        "fontSize": "9px",
+        "fontWeight": 400
+      }
+    },
+    "command-label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter", "system-ui", "sans-serif"],
+        "fontSize": "11px",
+        "fontWeight": 400
+      }
+    },
+    "command-input": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": ["Inter", "system-ui", "sans-serif"],
+        "fontSize": "13px",
+        "fontWeight": 400
+      }
+    }
+  },
+  "color": {
+    "surface": {
+      "page": { "$type": "color", "$value": "#ffffff" },
+      "overlay": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Palette body."
+      },
+      "overlay-active": {
+        "$type": "color",
+        "$value": "#f0f0f0",
+        "$description": "The one command row carrying selection."
+      },
+      "control": {
+        "$type": "color",
+        "$value": "#f2f2f2",
+        "$description": "Header search field and icon button."
+      }
+    },
+    "border": {
+      "frame": {
+        "$type": "color",
+        "$value": "#d9d9d9",
+        "$description": "Outer edge of the page frame."
+      },
+      "row": {
+        "$type": "color",
+        "$value": "#f0f0f0",
+        "$description": "The full border each list row carries."
+      },
+      "overlay": {
+        "$type": "color",
+        "$value": "#cccccc",
+        "$description": "Palette edge."
+      }
+    },
+    "text": {
+      "title": { "$type": "color", "$value": "#333333" },
+      "group-label": { "$type": "color", "$value": "#4d4d4d" },
+      "command": { "$type": "color", "$value": "#525252" },
+      "placeholder": { "$type": "color", "$value": "#8c8c8c" },
+      "meta": {
+        "$type": "color",
+        "$value": "#999999",
+        "$description": "Group count."
+      }
+    },
+    "mark": {
+      "group-dot": { "$type": "color", "$value": "#bfbfbf" },
+      "select-box": {
+        "$type": "color",
+        "$value": "#e6e6e6",
+        "$description": "Row checkbox."
+      },
+      "command-icon": { "$type": "color", "$value": "#e0e0e0" },
+      "keycap": {
+        "$type": "color",
+        "$value": "#f0f0f0",
+        "$description": "Shortcut cap on the trailing edge of a command row."
+      }
+    },
+    "field": {
+      "$description": "Row slot fills, ordered from strongest to weakest so a row reads primary first.",
+      "primary": { "$type": "color", "$value": "#d9d9d9" },
+      "detail": { "$type": "color", "$value": "#ededed" },
+      "meta": { "$type": "color", "$value": "#ebebeb" },
+      "state-pill": { "$type": "color", "$value": "#f0f0f0" }
+    }
+  },
+  "space": {
+    "$description": "Named by pixel value, because the sketch decides raw steps rather than a ratio.",
+    "1": { "$type": "dimension", "$value": "1px" },
+    "6": { "$type": "dimension", "$value": "6px" },
+    "8": { "$type": "dimension", "$value": "8px" },
+    "9": { "$type": "dimension", "$value": "9px" },
+    "11": { "$type": "dimension", "$value": "11px" },
+    "12": { "$type": "dimension", "$value": "12px" },
+    "14": { "$type": "dimension", "$value": "14px" },
+    "16": { "$type": "dimension", "$value": "16px" },
+    "18": { "$type": "dimension", "$value": "18px" },
+    "32": { "$type": "dimension", "$value": "32px" },
+    "gutter": {
+      "$type": "dimension",
+      "$value": "220px",
+      "$description": "Side padding of the stream; what turns the list into a centred column."
+    }
+  },
+  "radius": {
+    "2": { "$type": "dimension", "$value": "2px" },
+    "3": { "$type": "dimension", "$value": "3px" },
+    "4": { "$type": "dimension", "$value": "4px" },
+    "6": { "$type": "dimension", "$value": "6px" },
+    "7": {
+      "$type": "dimension",
+      "$value": "7px",
+      "$description": "Half of the 14px state pill, so the pill is fully round."
+    },
+    "10": { "$type": "dimension", "$value": "10px" },
+    "12": { "$type": "dimension", "$value": "12px" }
+  },
+  "border-width": {
+    "hairline": { "$type": "dimension", "$value": "1px" }
+  },
+  "size": {
+    "$description": "Fixed measures the sketch pins rather than derives.",
+    "header-height": { "$type": "dimension", "$value": "60px" },
+    "row-height": { "$type": "dimension", "$value": "32px" },
+    "group-header-height": { "$type": "dimension", "$value": "38px" },
+    "measure": {
+      "$type": "dimension",
+      "$value": "840px",
+      "$description": "Content width left by the gutter in a 1280 frame."
+    },
+    "field-primary": { "$type": "dimension", "$value": "160px" },
+    "field-meta": { "$type": "dimension", "$value": "70px" },
+    "state-pill-width": { "$type": "dimension", "$value": "50px" },
+    "state-pill-height": { "$type": "dimension", "$value": "14px" },
+    "control": { "$type": "dimension", "$value": "24px" },
+    "search-width": { "$type": "dimension", "$value": "150px" },
+    "mark": {
+      "$type": "dimension",
+      "$value": "14px",
+      "$description": "Row checkbox and command icon."
+    },
+    "dot": { "$type": "dimension", "$value": "8px" },
+    "keycap-width": { "$type": "dimension", "$value": "34px" },
+    "overlay-width": { "$type": "dimension", "$value": "520px" },
+    "overlay-height": { "$type": "dimension", "$value": "300px" },
+    "overlay-top": {
+      "$type": "dimension",
+      "$value": "249px",
+      "$description": "Offset from the top of the frame at which the palette floats."
+    },
+    "overlay-input-height": { "$type": "dimension", "$value": "48px" },
+    "overlay-row-height": { "$type": "dimension", "$value": "36px" }
+  },
+  "shadow": {
+    "overlay": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#0000002e",
+        "offsetX": "0px",
+        "offsetY": "12px",
+        "blur": "32px",
+        "spread": "0px"
+      },
+      "$description": "Zero horizontal offset, so it needs no mirroring right to left."
+    }
+  }
+}

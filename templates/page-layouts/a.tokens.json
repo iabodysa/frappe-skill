@@ -1,0 +1,393 @@
+{
+  "color": {
+    "surface": {
+      "topbar": {
+        "$value": "#f7f7f7",
+        "$type": "color",
+        "$description": "Band ground for the identity strip and the paging strip."
+      },
+      "filters": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Band ground for the filter row, held apart from the topbar by a hairline border rather than a tone change."
+      },
+      "bulkbar": {
+        "$value": "#fafafa",
+        "$type": "color",
+        "$description": "Band ground for the selection and bulk-action strip."
+      },
+      "columnHeader": {
+        "$value": "#ededed",
+        "$type": "color",
+        "$description": "Darkest band ground in the set; separates the column labels from the data below without a rule."
+      },
+      "rowOdd": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "First zebra phase."
+      },
+      "rowEven": {
+        "$value": "#fbfbfb",
+        "$type": "color",
+        "$description": "Second zebra phase; carries the row boundary in place of a horizontal rule."
+      },
+      "rule": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "The 1px filler rule that spans the free width inside the topbar, bulkbar and paging bands."
+      }
+    },
+    "control": {
+      "filter": {
+        "$value": "#f0f0f0",
+        "$type": "color",
+        "$description": "Filter control fill on the white filter band."
+      },
+      "chip": {
+        "$value": "#ededed",
+        "$type": "color",
+        "$description": "Counter chip fill in the topbar."
+      },
+      "button": {
+        "$value": "#e0e0e0",
+        "$type": "color",
+        "$description": "Bulk-action button fill; one step darker than the chip so an action reads as pressable and a counter does not."
+      },
+      "checkbox": {
+        "$value": "#dbdbdb",
+        "$type": "color",
+        "$description": "Unchecked row selector."
+      },
+      "rowAction": {
+        "$value": "#ebebeb",
+        "$type": "color",
+        "$description": "Trailing per-row action chip."
+      }
+    },
+    "border": {
+      "hairline": {
+        "$value": "#e6e6e6",
+        "$type": "color",
+        "$description": "The single border in the layout, drawn around the filter band."
+      }
+    },
+    "text": {
+      "brand": {
+        "$value": "#333333",
+        "$type": "color",
+        "$description": "Page identity; the darkest text in the set."
+      },
+      "value": {
+        "$value": "#404040",
+        "$type": "color",
+        "$description": "Counter chip figure."
+      },
+      "action": {
+        "$value": "#4d4d4d",
+        "$type": "color",
+        "$description": "Selection count and bulk-action button labels."
+      },
+      "columnLabel": {
+        "$value": "#6b6b6b",
+        "$type": "color",
+        "$description": "Column header label."
+      },
+      "meta": {
+        "$value": "#737373",
+        "$type": "color",
+        "$description": "Paging figures."
+      },
+      "chipLabel": {
+        "$value": "#808080",
+        "$type": "color",
+        "$description": "The category word beside a counter chip figure."
+      },
+      "count": {
+        "$value": "#8c8c8c",
+        "$type": "color",
+        "$description": "Total row count at the trailing edge of the bulkbar; the quietest text in the set."
+      }
+    },
+    "content": {
+      "emphasis": {
+        "$value": "#d6d6d6",
+        "$type": "color",
+        "$description": "Heaviest content weight; carries the Status column."
+      },
+      "primary": {
+        "$value": "#e0e0e0",
+        "$type": "color",
+        "$description": "Subject column content weight."
+      },
+      "secondary": {
+        "$value": "#e6e6e6",
+        "$type": "color",
+        "$description": "Every remaining data column."
+      }
+    }
+  },
+  "dimension": {
+    "space": {
+      "chipInner": {
+        "$value": "6px",
+        "$type": "dimension",
+        "$description": "Gap between a counter figure and its category word."
+      },
+      "band": {
+        "$value": "8px",
+        "$type": "dimension",
+        "$description": "Gap between items inside the topbar, bulkbar and paging bands, and between filter controls."
+      },
+      "column": {
+        "$value": "14px",
+        "$type": "dimension",
+        "$description": "Gap between table columns, in the header band and in every row."
+      },
+      "edge": {
+        "$value": "16px",
+        "$type": "dimension",
+        "$description": "Inline padding at the page edge, identical in every band."
+      },
+      "padBlockTight": {
+        "$value": "8px",
+        "$type": "dimension",
+        "$description": "Block padding of the bulkbar, the column header band and every row."
+      },
+      "padBlockRelaxed": {
+        "$value": "10px",
+        "$type": "dimension",
+        "$description": "Block padding of the filter band and the paging band."
+      },
+      "padBlockTopbar": {
+        "$value": "12px",
+        "$type": "dimension",
+        "$description": "Block padding of the topbar; the tallest band padding in the set."
+      },
+      "controlPadBlock": {
+        "$value": "5px",
+        "$type": "dimension",
+        "$description": "Block padding inside a counter chip and a bulk-action button."
+      },
+      "controlPadInline": {
+        "$value": "10px",
+        "$type": "dimension",
+        "$description": "Inline padding inside a counter chip and a bulk-action button."
+      }
+    },
+    "size": {
+      "rowHeight": {
+        "$value": "32px",
+        "$type": "dimension",
+        "$description": "Table row height; 8px block padding around a 16px content line."
+      },
+      "cellHeight": {
+        "$value": "14px",
+        "$type": "dimension",
+        "$description": "Clipping height of a data cell inside a row."
+      },
+      "contentBar": {
+        "$value": "9px",
+        "$type": "dimension",
+        "$description": "Height of the content stand-in inside a data cell."
+      },
+      "checkbox": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "filterHeight": {
+        "$value": "26px",
+        "$type": "dimension"
+      },
+      "rowActionHeight": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "bandTopbar": {
+        "$value": "49px",
+        "$type": "dimension"
+      },
+      "bandFilters": {
+        "$value": "46px",
+        "$type": "dimension"
+      },
+      "bandBulkbar": {
+        "$value": "38px",
+        "$type": "dimension"
+      },
+      "bandColumnHeader": {
+        "$value": "28px",
+        "$type": "dimension"
+      },
+      "bandPaging": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "rule": {
+        "$value": "1px",
+        "$type": "dimension",
+        "$description": "Thickness of the filler rule inside a band."
+      }
+    },
+    "column": {
+      "select": {
+        "$value": "22px",
+        "$type": "dimension",
+        "$description": "Header width of the row-selector column."
+      },
+      "subject": {
+        "$value": "170px",
+        "$type": "dimension",
+        "$description": "Widest column; the record's name."
+      },
+      "date": {
+        "$value": "84px",
+        "$type": "dimension"
+      },
+      "status": {
+        "$value": "150px",
+        "$type": "dimension"
+      },
+      "wide": {
+        "$value": "120px",
+        "$type": "dimension",
+        "$description": "Used twice: the owning organisation and the payment reference."
+      },
+      "medium": {
+        "$value": "110px",
+        "$type": "dimension"
+      },
+      "narrow": {
+        "$value": "64px",
+        "$type": "dimension",
+        "$description": "Numeric column."
+      },
+      "action": {
+        "$value": "60px",
+        "$type": "dimension",
+        "$description": "Trailing per-row action chip; fixed, and it does not stretch to the page edge."
+      }
+    },
+    "radius": {
+      "contentBar": {
+        "$value": "2px",
+        "$type": "dimension"
+      },
+      "checkbox": {
+        "$value": "3px",
+        "$type": "dimension"
+      },
+      "control": {
+        "$value": "4px",
+        "$type": "dimension",
+        "$description": "Filter control, counter chip, bulk-action button and row action chip all share it."
+      }
+    },
+    "border": {
+      "hairline": {
+        "$value": "1px",
+        "$type": "dimension"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "ui": {
+        "$value": "Inter",
+        "$type": "fontFamily"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": 400,
+        "$type": "fontWeight"
+      },
+      "semibold": {
+        "$value": 600,
+        "$type": "fontWeight"
+      }
+    },
+    "size": {
+      "columnLabel": {
+        "$value": "9px",
+        "$type": "dimension",
+        "$description": "Smallest size in the set."
+      },
+      "meta": {
+        "$value": "10px",
+        "$type": "dimension"
+      },
+      "selection": {
+        "$value": "11px",
+        "$type": "dimension"
+      },
+      "value": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "brand": {
+        "$value": "13px",
+        "$type": "dimension",
+        "$description": "Largest size in the set; the whole layout lives inside a 9px to 13px range."
+      }
+    }
+  },
+  "typography": {
+    "brand": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": 600
+      },
+      "$type": "typography"
+    },
+    "chipValue": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": 600
+      },
+      "$type": "typography"
+    },
+    "chipLabel": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "10px",
+        "fontWeight": 400
+      },
+      "$type": "typography"
+    },
+    "selectionCount": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "11px",
+        "fontWeight": 600
+      },
+      "$type": "typography"
+    },
+    "buttonLabel": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "10px",
+        "fontWeight": 400
+      },
+      "$type": "typography"
+    },
+    "columnLabel": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "9px",
+        "fontWeight": 600
+      },
+      "$type": "typography",
+      "$description": "The smallest and heaviest pairing in the set, which is what lets a 9px label hold its own against 32px rows."
+    },
+    "meta": {
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": "10px",
+        "fontWeight": 400
+      },
+      "$type": "typography"
+    }
+  }
+}

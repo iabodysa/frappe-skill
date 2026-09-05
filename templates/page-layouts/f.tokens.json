@@ -1,0 +1,130 @@
+{
+  "$description": "Values decided by layout sketch F, Guided Batch. Nothing here is decided anywhere else in the sketch set.",
+  "color": {
+    "surface": {
+      "page": { "$value": "#f7f7f7", "$type": "color", "$description": "Ground behind the cards, and the fill of a flagged card in the rail." },
+      "card": { "$value": "#ffffff", "$type": "color" },
+      "row": { "$value": "#ffffff", "$type": "color", "$description": "Odd batch row." },
+      "rowAlt": { "$value": "#fcfcfc", "$type": "color", "$description": "Even batch row. One step off white, enough to count rows and not enough to stripe." },
+      "commitBar": { "$value": "#fbfbfb", "$type": "color" }
+    },
+    "border": {
+      "page": { "$value": "#d9d9d9", "$type": "color", "$description": "Outer frame of the whole sketch." },
+      "card": { "$value": "#e6e6e6", "$type": "color" },
+      "stepperTrack": { "$value": "#e6e6e6", "$type": "color" }
+    },
+    "text": {
+      "ask": { "$value": "#262626", "$type": "color", "$description": "The question. The darkest text on the page." },
+      "stepActive": { "$value": "#333333", "$type": "color" },
+      "stepIdle": { "$value": "#8c8c8c", "$type": "color" },
+      "askSub": { "$value": "#808080", "$type": "color", "$description": "The instruction line under the question, and the checked count." },
+      "cardLabel": { "$value": "#595959", "$type": "color", "$description": "Rail card headings, and the quiet button labels." },
+      "railLabel": { "$value": "#737373", "$type": "color" },
+      "railValue": { "$value": "#404040", "$type": "color" },
+      "onCommit": { "$value": "#fafafa", "$type": "color", "$description": "Label inside the one filled button." }
+    },
+    "control": {
+      "checkboxChecked": { "$value": "#8c8c8c", "$type": "color" },
+      "checkboxUnchecked": { "$value": "#f2f2f2", "$type": "color" },
+      "chip": { "$value": "#f2f2f2", "$type": "color", "$description": "Filter pill in the narrow band." },
+      "buttonQuiet": { "$value": "#f0f0f0", "$type": "color" },
+      "buttonCommit": { "$value": "#383838", "$type": "color", "$description": "The single filled button on the page." }
+    },
+    "placeholder": {
+      "avatar": { "$value": "#ebebeb", "$type": "color" },
+      "labelBar": { "$value": "#dbdbdb", "$type": "color", "$description": "Primary label stand-in in a batch row." },
+      "fillerBar": { "$value": "#ededed", "$type": "color", "$description": "The bar that takes the slack in a batch row." },
+      "statusPill": { "$value": "#f0f0f0", "$type": "color" },
+      "trailingChip": { "$value": "#f7f7f7", "$type": "color", "$description": "Trailing chip on a checked row." },
+      "trailingChipFlagged": { "$value": "#d6d6d6", "$type": "color", "$description": "Trailing chip on an unchecked row. The only in-row mark of a flagged record." },
+      "bullet": { "$value": "#d9d9d9", "$type": "color" },
+      "railBarStrong": { "$value": "#d9d9d9", "$type": "color" },
+      "railBarWeak": { "$value": "#ebebeb", "$type": "color" }
+    }
+  },
+  "space": {
+    "6": { "$value": "6px", "$type": "dimension", "$description": "Gap inside a flagged card." },
+    "8": { "$value": "8px", "$type": "dimension", "$description": "Step dot to step label, and rail row gap." },
+    "10": { "$value": "10px", "$type": "dimension", "$description": "Batch row vertical padding, rail card gap, narrow band chip gap." },
+    "12": { "$value": "12px", "$type": "dimension", "$description": "Commit bar gap, flagged card horizontal padding, narrow band bottom padding." },
+    "14": { "$value": "14px", "$type": "dimension", "$description": "Batch row gap, and the gap between rail cards." },
+    "16": { "$value": "16px", "$type": "dimension", "$description": "Rail card padding, commit bar vertical padding, quiet button horizontal padding, gap between batch card and rail." },
+    "18": { "$value": "18px", "$type": "dimension", "$description": "Stepper vertical padding, and the ask band bottom padding." },
+    "20": { "$value": "20px", "$type": "dimension", "$description": "Body vertical padding." },
+    "22": { "$value": "22px", "$type": "dimension", "$description": "Ask band top padding." },
+    "24": { "$value": "24px", "$type": "dimension", "$description": "Page horizontal padding, and every band's own horizontal padding inside the batch card." },
+    "26": { "$value": "26px", "$type": "dimension", "$description": "Horizontal padding of the commit button, wider than a quiet button." }
+  },
+  "radius": {
+    "hairline": { "$value": "1px", "$type": "dimension", "$description": "Stepper connector rule." },
+    "bar": { "$value": "2px", "$type": "dimension", "$description": "Every placeholder bar." },
+    "checkbox": { "$value": "4px", "$type": "dimension" },
+    "flaggedCard": { "$value": "6px", "$type": "dimension" },
+    "button": { "$value": "7px", "$type": "dimension" },
+    "card": { "$value": "10px", "$type": "dimension", "$description": "Batch card, rail card, and the page frame." },
+    "avatar": { "$value": "12px", "$type": "dimension", "$description": "Half of the 24px avatar." },
+    "chip": { "$value": "13px", "$type": "dimension", "$description": "Half of the 26px filter pill." }
+  },
+  "border": {
+    "width": { "$value": "1px", "$type": "dimension", "$description": "The only border weight the sketch uses." }
+  },
+  "size": {
+    "stepDot": { "$value": "20px", "$type": "dimension" },
+    "stepperTrackHeight": { "$value": "2px", "$type": "dimension" },
+    "checkbox": { "$value": "16px", "$type": "dimension" },
+    "avatar": { "$value": "24px", "$type": "dimension" },
+    "bullet": { "$value": "8px", "$type": "dimension" },
+    "rowHeight": { "$value": "44px", "$type": "dimension", "$description": "One batch row." },
+    "stepperHeight": { "$value": "56px", "$type": "dimension" },
+    "buttonHeight": { "$value": "35px", "$type": "dimension" },
+    "chipHeight": { "$value": "26px", "$type": "dimension" },
+    "railWidth": { "$value": "300px", "$type": "dimension", "$description": "Fixed. The rail never grows or shrinks." }
+  },
+  "font": {
+    "family": { "$value": "Inter", "$type": "fontFamily", "$description": "Latin face of the sketch. An Arabic build substitutes its own and keeps the scale." },
+    "weight": {
+      "regular": { "$value": 400, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" }
+    },
+    "size": {
+      "ask": { "$value": "20px", "$type": "dimension", "$description": "The question. The only large type on the page." },
+      "body": { "$value": "12px", "$type": "dimension", "$description": "The instruction line under the question." },
+      "button": { "$value": "11px", "$type": "dimension" },
+      "meta": { "$value": "10px", "$type": "dimension", "$description": "Step labels, rail card headings, rail rows, and the checked count." }
+    }
+  },
+  "type": {
+    "ask": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 600, "fontSize": "20px" }
+    },
+    "askSub": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 400, "fontSize": "12px" }
+    },
+    "commitLabel": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 600, "fontSize": "11px" }
+    },
+    "quietLabel": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 400, "fontSize": "11px" }
+    },
+    "cardHeading": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 600, "fontSize": "10px" }
+    },
+    "stepActive": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 600, "fontSize": "10px" }
+    },
+    "stepIdle": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 400, "fontSize": "10px" }
+    },
+    "railValue": {
+      "$type": "typography",
+      "$value": { "fontFamily": "Inter", "fontWeight": 600, "fontSize": "10px" }
+    }
+  }
+}

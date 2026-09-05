@@ -1,0 +1,613 @@
+{
+  "page_layout": {
+    "schema": {
+      "name": "frappe-page-layout",
+      "version": 1,
+      "region_keys": [
+        "region",
+        "role",
+        "direction",
+        "align",
+        "padding",
+        "gap",
+        "grow",
+        "collapse_at",
+        "rtl_mirrors",
+        "children"
+      ],
+      "direction_values": ["row", "column"],
+      "grow_values": ["fill", "fixed"],
+      "token_ref": "A string of the form {group.name} resolves to that dotted path in e.tokens.json.",
+      "padding": "Object with any of block_start, block_end, inline. Values are token refs. Absent side means zero.",
+      "collapse_at": "Viewport width in px below which the region's own reflow applies. Null means the region keeps its shape at every width.",
+      "rtl_mirrors": "true when the region's child order and alignment invert under dir=rtl without a rule being written for it."
+    },
+    "letter": "E",
+    "name": "Dashboard First",
+    "suits": "A page read for its totals before its rows: a renewal overview, a collections summary, a monthly close.",
+    "frame": { "width": 1280, "height": 820 },
+    "root": {
+      "region": "page",
+      "role": "page",
+      "direction": "column",
+      "align": "stretch",
+      "padding": {},
+      "gap": "{space.1}",
+      "grow": "fill",
+      "collapse_at": null,
+      "rtl_mirrors": true,
+      "background": "{color.canvas}",
+      "children": [
+        {
+          "region": "page-header",
+          "role": "page-title-and-controls",
+          "direction": "row",
+          "align": "center",
+          "padding": {
+            "block_start": "{space.9}",
+            "block_end": "{space.9}",
+            "inline": "{space.11}"
+          },
+          "gap": "{space.6}",
+          "grow": "fixed",
+          "height": "{measure.page-header-height}",
+          "background": "{color.surface.header-bar}",
+          "collapse_at": null,
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "page-title",
+              "role": "heading",
+              "direction": "row",
+              "align": "center",
+              "padding": {},
+              "gap": null,
+              "grow": "fixed",
+              "typography": "{type.page-title}",
+              "color": "{color.text.strong}",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": []
+            },
+            {
+              "region": "header-spacer",
+              "role": "spacer",
+              "direction": "row",
+              "align": "center",
+              "padding": {},
+              "gap": null,
+              "grow": "fill",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": []
+            },
+            {
+              "region": "header-controls",
+              "role": "filters-and-primary-action",
+              "direction": "row",
+              "align": "center",
+              "padding": {},
+              "gap": "{space.6}",
+              "grow": "fixed",
+              "collapse_at": 768,
+              "collapse_to": "menu",
+              "rtl_mirrors": true,
+              "item": {
+                "height": "{measure.control-height}",
+                "radius": "{radius.control}",
+                "background": "{color.control.header-fill}"
+              },
+              "items": [
+                { "role": "filter", "width": "{measure.control-wide}" },
+                { "role": "filter", "width": "{measure.control-wide}" },
+                { "role": "primary-action", "width": "{measure.control-narrow}" }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "region": "kpi-strip",
+          "role": "summary-counts",
+          "direction": "row",
+          "align": "start",
+          "padding": {
+            "block_start": "{space.10}",
+            "block_end": "{space.2}",
+            "inline": "{space.11}"
+          },
+          "gap": "{space.7}",
+          "grow": "fixed",
+          "collapse_at": 768,
+          "collapse_to": "wrap-to-grid-of-two",
+          "rtl_mirrors": true,
+          "repeat": "{count.kpi-cards}",
+          "children": [
+            {
+              "region": "kpi-card",
+              "role": "count",
+              "direction": "column",
+              "align": "start",
+              "padding": { "block_start": "{space.8}", "block_end": "{space.8}", "inline": "{space.8}" },
+              "gap": "{space.3}",
+              "grow": "fill",
+              "background": "{color.surface.card}",
+              "border": { "width": "{border.width}", "color": "{border.card}" },
+              "radius": "{radius.card}",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "kpi-label",
+                  "role": "label",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fixed",
+                  "typography": "{type.label}",
+                  "color": "{color.text.muted}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": []
+                },
+                {
+                  "region": "kpi-figure",
+                  "role": "figure",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fixed",
+                  "typography": "{type.figure}",
+                  "color": "{color.text.strong}",
+                  "collapse_at": null,
+                  "rtl_mirrors": false,
+                  "rtl_note": "Frappe pins the number card body with a physical text-align: left at frappe/public/scss/desk/desktop.scss:656, so this child needs an explicit logical alignment.",
+                  "children": []
+                },
+                {
+                  "region": "kpi-meter",
+                  "role": "share-meter",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fill",
+                  "height": "{measure.kpi-meter-height}",
+                  "radius": "{radius.hairline}",
+                  "background": "{color.data.meter}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "region": "analytics-band",
+          "role": "two-views-of-one-partition",
+          "direction": "row",
+          "align": "start",
+          "padding": {
+            "block_start": "{space.7}",
+            "block_end": "{space.2}",
+            "inline": "{space.11}"
+          },
+          "gap": "{space.7}",
+          "grow": "fixed",
+          "collapse_at": 768,
+          "collapse_to": "stack-column-chart-first",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "trend-card",
+              "role": "column-chart",
+              "direction": "column",
+              "align": "start",
+              "padding": { "block_start": "{space.7}", "block_end": "{space.7}", "inline": "{space.8}" },
+              "gap": "{space.6}",
+              "grow": "fill",
+              "background": "{color.surface.card}",
+              "border": { "width": "{border.width}", "color": "{border.card}" },
+              "radius": "{radius.card}",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "trend-title",
+                  "role": "card-title",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fixed",
+                  "typography": "{type.card-title}",
+                  "color": "{color.text.card-title}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": []
+                },
+                {
+                  "region": "trend-plot",
+                  "role": "plot",
+                  "direction": "row",
+                  "align": "end",
+                  "padding": {},
+                  "gap": "{space.5}",
+                  "grow": "fill",
+                  "height": "{measure.plot-height}",
+                  "repeat": "{count.chart-bars}",
+                  "item": {
+                    "role": "bar",
+                    "grow": "fill",
+                    "radius": "{radius.bar}",
+                    "background": "{color.data.bar}"
+                  },
+                  "collapse_at": null,
+                  "rtl_mirrors": false,
+                  "rtl_note": "The series is drawn as SVG by frappe-charts, which rtlcss does not reach (esbuild/esbuild.js:232-235). Reversing the series data is the only lever.",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "region": "share-card",
+              "role": "part-to-whole",
+              "direction": "column",
+              "align": "start",
+              "padding": { "block_start": "{space.7}", "block_end": "{space.7}", "inline": "{space.8}" },
+              "gap": "{space.6}",
+              "grow": "fixed",
+              "width": "{measure.share-card-width}",
+              "background": "{color.surface.card}",
+              "border": { "width": "{border.width}", "color": "{border.card}" },
+              "radius": "{radius.card}",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "share-title",
+                  "role": "card-title",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fixed",
+                  "typography": "{type.card-title}",
+                  "color": "{color.text.card-title}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": []
+                },
+                {
+                  "region": "share-body",
+                  "role": "chart-and-legend",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": {},
+                  "gap": "{space.7}",
+                  "grow": "fill",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": [
+                    {
+                      "region": "share-donut",
+                      "role": "donut",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": {},
+                      "gap": null,
+                      "grow": "fixed",
+                      "width": "{measure.donut-diameter}",
+                      "height": "{measure.donut-diameter}",
+                      "collapse_at": null,
+                      "rtl_mirrors": false,
+                      "rtl_note": "Slice order is computed by the chart library, not by CSS.",
+                      "children": []
+                    },
+                    {
+                      "region": "share-legend",
+                      "role": "legend",
+                      "direction": "column",
+                      "align": "start",
+                      "padding": {},
+                      "gap": "{space.3}",
+                      "grow": "fill",
+                      "repeat": "{count.legend-rows}",
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "children": [
+                        {
+                          "region": "legend-row",
+                          "role": "legend-entry",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": "{space.3}",
+                          "grow": "fill",
+                          "collapse_at": null,
+                          "rtl_mirrors": true,
+                          "children": [
+                            {
+                              "region": "legend-swatch",
+                              "role": "swatch",
+                              "direction": "row",
+                              "align": "center",
+                              "padding": {},
+                              "gap": null,
+                              "grow": "fixed",
+                              "width": "{measure.legend-swatch}",
+                              "height": "{measure.legend-swatch}",
+                              "radius": "{radius.hairline}",
+                              "background_series": [
+                                "{color.data.series-1}",
+                                "{color.data.series-2}",
+                                "{color.data.series-3}",
+                                "{color.data.series-4}"
+                              ],
+                              "collapse_at": null,
+                              "rtl_mirrors": true,
+                              "children": []
+                            },
+                            {
+                              "region": "legend-track",
+                              "role": "label-slot",
+                              "direction": "row",
+                              "align": "center",
+                              "padding": {},
+                              "gap": null,
+                              "grow": "fill",
+                              "height": "{measure.legend-track-height}",
+                              "radius": "{radius.hairline}",
+                              "background": "{color.data.legend-track}",
+                              "collapse_at": null,
+                              "rtl_mirrors": true,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "region": "action-band",
+          "role": "drill-down",
+          "direction": "column",
+          "align": "start",
+          "padding": {
+            "block_start": "{space.7}",
+            "block_end": "{space.10}",
+            "inline": "{space.11}"
+          },
+          "gap": null,
+          "grow": "fixed",
+          "collapse_at": null,
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "action-card",
+              "role": "list-card",
+              "direction": "column",
+              "align": "start",
+              "padding": {},
+              "gap": null,
+              "grow": "fill",
+              "background": "{color.surface.card}",
+              "border": { "width": "{border.width}", "color": "{border.card}" },
+              "radius": "{radius.card}",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "action-header",
+                  "role": "list-header",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": { "block_start": "{space.6}", "block_end": "{space.6}", "inline": "{space.8}" },
+                  "gap": "{space.3}",
+                  "grow": "fill",
+                  "background": "{color.surface.section-header}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": [
+                    {
+                      "region": "action-header-title",
+                      "role": "heading",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": {},
+                      "gap": null,
+                      "grow": "fixed",
+                      "typography": "{type.section-title}",
+                      "color": "{color.text.section}",
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "children": []
+                    },
+                    {
+                      "region": "action-header-spacer",
+                      "role": "spacer",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": {},
+                      "gap": null,
+                      "grow": "fill",
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "children": []
+                    },
+                    {
+                      "region": "action-header-escape",
+                      "role": "link-to-full-list",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": {},
+                      "gap": null,
+                      "grow": "fixed",
+                      "typography": "{type.label}",
+                      "color": "{color.text.muted}",
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "region": "action-rows",
+                  "role": "row-list",
+                  "direction": "column",
+                  "align": "stretch",
+                  "padding": {},
+                  "gap": null,
+                  "grow": "fill",
+                  "repeat": "{count.preview-rows}",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": [
+                    {
+                      "region": "action-row",
+                      "role": "row",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": { "block_start": "{space.4}", "block_end": "{space.4}", "inline": "{space.8}" },
+                      "gap": "{space.8}",
+                      "grow": "fill",
+                      "height": "{measure.row-height}",
+                      "background": "{color.surface.card}",
+                      "collapse_at": 768,
+                      "collapse_to": "drop-secondary-and-meta",
+                      "rtl_mirrors": true,
+                      "children": [
+                        {
+                          "region": "row-avatar",
+                          "role": "identity",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": null,
+                          "grow": "fixed",
+                          "width": "{measure.avatar-size}",
+                          "height": "{measure.avatar-size}",
+                          "radius": "{radius.avatar}",
+                          "background": "{color.row.avatar}",
+                          "collapse_at": null,
+                          "rtl_mirrors": true,
+                          "children": []
+                        },
+                        {
+                          "region": "row-primary",
+                          "role": "subject",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": null,
+                          "grow": "fixed",
+                          "width": "{measure.row-primary-width}",
+                          "radius": "{radius.hairline}",
+                          "background": "{color.row.primary}",
+                          "collapse_at": null,
+                          "rtl_mirrors": true,
+                          "children": []
+                        },
+                        {
+                          "region": "row-secondary",
+                          "role": "detail",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": null,
+                          "grow": "fill",
+                          "radius": "{radius.hairline}",
+                          "background": "{color.row.secondary}",
+                          "collapse_at": 768,
+                          "collapse_to": "hidden",
+                          "rtl_mirrors": true,
+                          "children": []
+                        },
+                        {
+                          "region": "row-meta",
+                          "role": "status",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": null,
+                          "grow": "fixed",
+                          "width": "{measure.row-meta-width}",
+                          "height": "{measure.row-meta-height}",
+                          "radius": "{radius.pill}",
+                          "background": "{color.row.meta}",
+                          "collapse_at": 768,
+                          "collapse_to": "hidden",
+                          "rtl_mirrors": true,
+                          "children": []
+                        },
+                        {
+                          "region": "row-action",
+                          "role": "row-action",
+                          "direction": "row",
+                          "align": "center",
+                          "padding": {},
+                          "gap": null,
+                          "grow": "fixed",
+                          "width": "{measure.row-action-width}",
+                          "height": "{measure.row-action-height}",
+                          "radius": "{radius.chip}",
+                          "background": "{color.row.action}",
+                          "collapse_at": null,
+                          "rtl_mirrors": true,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "narrow_screen": {
+      "breakpoint": 768,
+      "breakpoint_source": "frappe/public/scss/desk/desktop.scss:91, the width at which Frappe's own widget grid reflows.",
+      "reorder": [
+        "kpi-strip wraps from one row of five to a grid of two, keeping source order.",
+        "analytics-band stacks, trend-card above share-card, so the fixed 300px share-card stops setting the floor width.",
+        "header-controls fold into a single menu control on the trailing side."
+      ],
+      "hidden": ["row-secondary", "row-meta"],
+      "unchanged": [
+        "page-header",
+        "action-header",
+        "row-avatar",
+        "row-primary",
+        "row-action"
+      ]
+    },
+    "rtl": {
+      "mirrors": [
+        "page-header: title leads, controls trail.",
+        "kpi-strip: card order inverts.",
+        "kpi-card: label and meter align to the leading edge.",
+        "action-header: title leads, see-all trails.",
+        "action-row: avatar leads, action chip trails.",
+        "legend-row: swatch leads, track trails."
+      ],
+      "does_not_mirror": [
+        "trend-plot: bar order is drawn by the chart library, outside CSS.",
+        "share-donut: slice order is drawn by the chart library, outside CSS.",
+        "kpi-figure: Frappe's number card body carries a physical text-align, so this needs an explicit override."
+      ],
+      "not_a_direction_question": [
+        "Numeral system. The sketch shows Latin digits with a thousands separator; Arabic-Indic digits are a formatting choice independent of page direction."
+      ]
+    }
+  }
+}

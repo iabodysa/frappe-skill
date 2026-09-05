@@ -1,0 +1,451 @@
+{
+  "page_layout": {
+    "schema": "page-layout/1",
+    "schema_note": "Layout has no published standard. Every region carries: region, role, direction, align, padding, gap, grow, collapse_at, rtl_mirrors, children. Values naming a dotted path resolve against d.tokens.json.",
+    "letter": "D",
+    "name": "Command Console",
+    "suits": "A single queue worked all day by a reader who knows it: renewals, approvals, payments.",
+    "frame": {
+      "width": "1280px",
+      "height": "820px",
+      "background": "color.surface.page",
+      "border": { "width": "border-width.hairline", "color": "color.border.frame" },
+      "radius": "radius.10"
+    },
+    "direction_default": "ltr",
+    "regions": [
+      {
+        "region": "header",
+        "role": "page identity and global search",
+        "direction": "row",
+        "align": "center",
+        "padding": { "block": "space.18", "inline": "space.32" },
+        "gap": "space.12",
+        "grow": "fixed",
+        "height": "size.header-height",
+        "background": "color.surface.page",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "header_title",
+            "role": "two-level breadcrumb naming the page",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "type": "type.page-title",
+            "color": "color.text.title",
+            "collapse_at": null,
+            "rtl_mirrors": true,
+            "rtl_note": "The separator between the two levels reverses with the crumbs."
+          },
+          {
+            "region": "header_rule",
+            "role": "spacer holding the two ends of the header apart",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "height": "space.1",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "header_search",
+            "role": "search field",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "width": "size.search-width",
+            "height": "size.control",
+            "background": "color.surface.control",
+            "radius": "radius.6",
+            "collapse_at": "640px",
+            "collapse_to": "icon only",
+            "rtl_mirrors": true
+          },
+          {
+            "region": "header_action",
+            "role": "single icon button",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "width": "size.control",
+            "height": "size.control",
+            "background": "color.surface.control",
+            "radius": "radius.6",
+            "collapse_at": null,
+            "rtl_mirrors": true
+          }
+        ]
+      },
+      {
+        "region": "stream",
+        "role": "the whole body: groups and their rows, scrolling as one column",
+        "direction": "column",
+        "align": "start",
+        "padding": { "block": "0", "inline": "space.gutter" },
+        "gap": "0",
+        "grow": "fill",
+        "measure": "size.measure",
+        "background": "color.surface.page",
+        "collapse_at": "900px",
+        "collapse_to": "inline padding drops to space.16, measure becomes fluid",
+        "rtl_mirrors": false,
+        "rtl_note": "Padding is symmetric, so the column does not move; only its contents flip.",
+        "children": [
+          {
+            "region": "group_header",
+            "role": "names the state a set of rows is waiting in, and counts it",
+            "repeats": "once per state",
+            "direction": "row",
+            "align": "center",
+            "padding": { "top": "space.18", "bottom": "space.8", "inline": "0" },
+            "gap": "space.8",
+            "grow": "fixed",
+            "height": "size.group-header-height",
+            "collapse_at": null,
+            "rtl_mirrors": true,
+            "children": [
+              {
+                "region": "group_dot",
+                "role": "state mark",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.dot",
+                "height": "size.dot",
+                "background": "color.mark.group-dot",
+                "radius": "radius.4",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "group_label",
+                "role": "state name",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "type": "type.group-label",
+                "color": "color.text.group-label",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "group_rule",
+                "role": "hairline carrying the eye to the count",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fill",
+                "height": "space.1",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "group_count",
+                "role": "how many rows the state holds",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "type": "type.group-count",
+                "color": "color.text.meta",
+                "collapse_at": null,
+                "rtl_mirrors": true,
+                "rtl_note": "The region moves to the leading edge; the digits keep their own run direction."
+              }
+            ]
+          },
+          {
+            "region": "row",
+            "role": "one document, selectable, five slots",
+            "repeats": "once per document in the group",
+            "direction": "row",
+            "align": "center",
+            "padding": { "block": "space.9", "inline": "space.6" },
+            "gap": "space.14",
+            "grow": "fixed",
+            "height": "size.row-height",
+            "background": "color.surface.page",
+            "border": { "width": "border-width.hairline", "color": "color.border.row" },
+            "collapse_at": null,
+            "rtl_mirrors": true,
+            "children": [
+              {
+                "region": "row_select",
+                "role": "checkbox feeding the palette's selection",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.mark",
+                "height": "size.mark",
+                "background": "color.mark.select-box",
+                "radius": "radius.3",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "row_primary",
+                "role": "the field that identifies the document",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.field-primary",
+                "background": "color.field.primary",
+                "radius": "radius.2",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "row_detail",
+                "role": "secondary description, taking whatever width is left",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fill",
+                "background": "color.field.detail",
+                "radius": "radius.2",
+                "collapse_at": "640px",
+                "collapse_to": "hidden",
+                "rtl_mirrors": false
+              },
+              {
+                "region": "row_meta",
+                "role": "date or reference, fixed width",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.field-meta",
+                "background": "color.field.meta",
+                "radius": "radius.2",
+                "collapse_at": "640px",
+                "collapse_to": "moves to a second line under row_primary",
+                "rtl_mirrors": true
+              },
+              {
+                "region": "row_state",
+                "role": "status pill on the trailing edge",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.state-pill-width",
+                "height": "size.state-pill-height",
+                "background": "color.field.state-pill",
+                "radius": "radius.7",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "region": "palette",
+        "role": "overlay carrying every verb the page has",
+        "placement": {
+          "mode": "overlay",
+          "horizontal": "centred in the frame",
+          "top": "size.overlay-top"
+        },
+        "direction": "column",
+        "align": "start",
+        "padding": null,
+        "gap": "0",
+        "grow": "fixed",
+        "width": "size.overlay-width",
+        "height": "size.overlay-height",
+        "background": "color.surface.overlay",
+        "border": { "width": "border-width.hairline", "color": "color.border.overlay" },
+        "radius": "radius.12",
+        "shadow": "shadow.overlay",
+        "collapse_at": "640px",
+        "collapse_to": "full frame width less space.16 on each side",
+        "rtl_mirrors": false,
+        "rtl_note": "Horizontally centred and its shadow has no x offset, so the overlay itself does not move.",
+        "children": [
+          {
+            "region": "palette_input",
+            "role": "the line the reader types a command into",
+            "direction": "row",
+            "align": "start",
+            "padding": { "block": "space.16", "inline": "space.18" },
+            "gap": null,
+            "grow": "fixed",
+            "height": "size.overlay-input-height",
+            "type": "type.command-input",
+            "color": "color.text.placeholder",
+            "collapse_at": null,
+            "rtl_mirrors": true
+          },
+          {
+            "region": "palette_command",
+            "role": "one runnable command",
+            "repeats": "once per command matching the input",
+            "direction": "row",
+            "align": "center",
+            "padding": { "block": "space.11", "inline": "space.18" },
+            "gap": "space.12",
+            "grow": "fixed",
+            "height": "size.overlay-row-height",
+            "background": "color.surface.overlay",
+            "background_active": "color.surface.overlay-active",
+            "collapse_at": null,
+            "rtl_mirrors": true,
+            "children": [
+              {
+                "region": "command_icon",
+                "direction": "row",
+                "role": "command mark",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.mark",
+                "height": "size.mark",
+                "background": "color.mark.command-icon",
+                "radius": "radius.3",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "command_label",
+                "role": "what the command does",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "type": "type.command-label",
+                "color": "color.text.command",
+                "collapse_at": null,
+                "rtl_mirrors": true
+              },
+              {
+                "region": "command_rule",
+                "role": "hairline carrying the eye to the keycap",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fill",
+                "height": "space.1",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "command_key",
+                "role": "the shortcut that runs it without the palette",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "width": "size.keycap-width",
+                "height": "size.state-pill-height",
+                "background": "color.mark.keycap",
+                "radius": "radius.4",
+                "collapse_at": null,
+                "rtl_mirrors": true,
+                "rtl_note": "The cap moves to the leading edge; the glyph inside is a symbol and is not flipped."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "narrow_screen": [
+      {
+        "collapse_at": "900px",
+        "region": "stream",
+        "change": "gutter drops from space.gutter to space.16 and the measure goes fluid"
+      },
+      {
+        "collapse_at": "640px",
+        "region": "row_detail",
+        "change": "hidden"
+      },
+      {
+        "collapse_at": "640px",
+        "region": "row_meta",
+        "change": "reorders onto a second line beneath row_primary; the row stops being a single line"
+      },
+      {
+        "collapse_at": "640px",
+        "region": "header_search",
+        "change": "shrinks to the icon button's footprint"
+      },
+      {
+        "collapse_at": "640px",
+        "region": "palette",
+        "change": "spans the frame less space.16 each side; height follows its content"
+      }
+    ],
+    "rtl": {
+      "mirrors": [
+        "header",
+        "header_title",
+        "header_search",
+        "header_action",
+        "group_header",
+        "group_dot",
+        "group_label",
+        "group_count",
+        "row",
+        "row_select",
+        "row_primary",
+        "row_meta",
+        "row_state",
+        "palette_input",
+        "palette_command",
+        "command_icon",
+        "command_label",
+        "command_key"
+      ],
+      "does_not_mirror": [
+        "stream",
+        "palette",
+        "header_rule",
+        "group_rule",
+        "command_rule",
+        "row_detail",
+        "shadow.overlay",
+        "size.header-height",
+        "size.row-height",
+        "font.size.label",
+        "font.size.meta",
+        "font.size.command",
+        "font.size.title",
+        "font.size.input"
+      ],
+      "notes": [
+        "The stream's inline padding is symmetric and the palette is centred, so neither region moves; only the order inside them flips.",
+        "shadow.overlay has offsetX 0, so there is nothing to mirror.",
+        "Counts and Latin identifiers inside Arabic rows keep their own run direction; the page direction does not decide it.",
+        "font.size.meta and font.size.label carry Arabic at 9px and 10px, which reads thinner than Latin at the same step; raising both one notch for an Arabic build is worth testing."
+      ]
+    }
+  }
+}

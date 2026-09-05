@@ -1,0 +1,10 @@
+probe	expected_leaf	status	cause
+bench migrate	knowledge/bench/migrate.md	control
+user sees record not allowed	knowledge/permission/docperm.md	ok
+submitted document cannot be edited	knowledge/document/submit.md	ok
+arabic text not translated	knowledge/bench/lookup.md	ok
+page still shows old thing	knowledge/bench/build.md	ok
+button i added does not appear	knowledge/bench/property-setter.md	ok
+scheduled job never runs no error	knowledge/job/scheduled-type.md	ok
+saving loses a field silently	knowledge/permission/permlevel.md	ok
+list shows wrong rows after filter	knowledge/permission/accessor.md	ok

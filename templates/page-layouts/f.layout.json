@@ -1,0 +1,349 @@
+{
+  "page_layout": {
+    "schema": "page-layout/1",
+    "schema_fields": {
+      "region": "stable id of the node",
+      "role": "what the region is for, in words",
+      "direction": "row | column | none",
+      "align": "cross-axis alignment of the children",
+      "padding": "dotted token path or a pair of them, inner to outer",
+      "gap": "dotted token path",
+      "grow": "fill | fixed | hug",
+      "children": "nested regions, in source order",
+      "collapse_at": "narrow-screen behaviour of this region",
+      "rtl_mirrors": "true when the region's own child order reverses under dir=rtl"
+    },
+    "token_file": "f.tokens.json",
+    "letter": "F",
+    "name": "Guided Batch",
+    "intent": "One question about one batch, answered once and moved on.",
+    "root": {
+      "region": "page",
+      "role": "the whole screen",
+      "direction": "column",
+      "align": "stretch",
+      "padding": "none",
+      "gap": "none",
+      "grow": "fill",
+      "surface": "color.surface.page",
+      "border": { "color": "color.border.page", "width": "border.width", "radius": "radius.card" },
+      "rtl_mirrors": false,
+      "children": [
+        {
+          "region": "stepper",
+          "role": "names the pipeline and marks the station the batch is standing at",
+          "direction": "row",
+          "align": "center",
+          "padding": { "block": "space.18", "inline": "space.24" },
+          "gap": "none",
+          "grow": "fixed",
+          "height": "size.stepperHeight",
+          "surface": "color.surface.card",
+          "collapse_at": "narrow: keep only the active step and a n-of-m counter; drop the idle steps and the connectors",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "stepper.step",
+              "role": "one workflow state; repeated six times, one of them active",
+              "direction": "row",
+              "align": "center",
+              "padding": "none",
+              "gap": "space.8",
+              "grow": "hug",
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "stepper.step.dot",
+                  "role": "filled when the step is the current one, hollow otherwise",
+                  "direction": "none",
+                  "align": "center",
+                  "padding": "none",
+                  "gap": "none",
+                  "grow": "fixed",
+                  "size": "size.stepDot",
+                  "rtl_mirrors": false
+                },
+                {
+                  "region": "stepper.step.label",
+                  "role": "state name",
+                  "direction": "none",
+                  "align": "center",
+                  "padding": "none",
+                  "gap": "none",
+                  "grow": "hug",
+                  "type_active": "type.stepActive",
+                  "type_idle": "type.stepIdle",
+                  "color_active": "color.text.stepActive",
+                  "color_idle": "color.text.stepIdle",
+                  "rtl_mirrors": false
+                }
+              ]
+            },
+            {
+              "region": "stepper.connector",
+              "role": "the rule between two steps; takes all the slack so the steps spread evenly",
+              "direction": "none",
+              "align": "center",
+              "padding": "none",
+              "gap": "none",
+              "grow": "fill",
+              "height": "size.stepperTrackHeight",
+              "surface": "color.border.stepperTrack",
+              "radius": "radius.hairline",
+              "rtl_mirrors": false
+            }
+          ]
+        },
+        {
+          "region": "body",
+          "role": "holds the batch card beside the rail",
+          "direction": "row",
+          "align": "start",
+          "padding": { "block": "space.20", "inline": "space.24" },
+          "gap": "space.16",
+          "grow": "fill",
+          "collapse_at": "narrow: becomes a column; the rail moves below the batch card",
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "batch_card",
+              "role": "the question, the batch, and the button that commits it",
+              "direction": "column",
+              "align": "start",
+              "padding": "none",
+              "gap": "none",
+              "grow": "fill",
+              "surface": "color.surface.card",
+              "border": { "color": "color.border.card", "width": "border.width", "radius": "radius.card" },
+              "collapse_at": "narrow: full width",
+              "rtl_mirrors": false,
+              "children": [
+                {
+                  "region": "ask",
+                  "role": "the one question, and the line telling the operator what their hands are for",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": { "top": "space.22", "bottom": "space.18", "inline": "space.24" },
+                  "gap": "space.8",
+                  "grow": "fixed",
+                  "surface": "color.surface.card",
+                  "collapse_at": "narrow: stays; pinning it above the scrolling batch keeps the button's count meaningful",
+                  "rtl_mirrors": false,
+                  "children": [
+                    { "region": "ask.question", "role": "the question, carrying the batch count inside the sentence", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "hug", "type": "type.ask", "color": "color.text.ask", "rtl_mirrors": false },
+                    { "region": "ask.instruction", "role": "what the operator does before pressing", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "hug", "type": "type.askSub", "color": "color.text.askSub", "rtl_mirrors": false }
+                  ]
+                },
+                {
+                  "region": "narrow",
+                  "role": "filter pills, and the live checked count pushed to the far edge",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": { "bottom": "space.12", "inline": "space.24" },
+                  "gap": "space.10",
+                  "grow": "fixed",
+                  "collapse_at": "narrow: pills scroll horizontally; the count wraps under them",
+                  "rtl_mirrors": true,
+                  "children": [
+                    { "region": "narrow.chip", "role": "one filter, repeated three times", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "height": "size.chipHeight", "surface": "color.control.chip", "radius": "radius.chip", "rtl_mirrors": false },
+                    { "region": "narrow.spacer", "role": "eats the slack so the count sits at the far edge", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fill", "rtl_mirrors": false },
+                    { "region": "narrow.count", "role": "how many of the batch are still checked", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "hug", "type": "type.cardHeading", "color": "color.text.askSub", "rtl_mirrors": false }
+                  ]
+                },
+                {
+                  "region": "batch",
+                  "role": "the rows the question is about; scrolls while the ask and commit bands hold",
+                  "direction": "column",
+                  "align": "stretch",
+                  "padding": "none",
+                  "gap": "none",
+                  "grow": "fill",
+                  "scroll": "vertical",
+                  "collapse_at": "narrow: each row reflows to two lines, checkbox and label on the first, status and chip on the second",
+                  "rtl_mirrors": false,
+                  "children": [
+                    {
+                      "region": "batch.row",
+                      "role": "one document in the batch",
+                      "surface_odd": "color.surface.row",
+                      "surface_even": "color.surface.rowAlt",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": { "block": "space.10", "inline": "space.24" },
+                      "gap": "space.14",
+                      "grow": "fixed",
+                      "height": "size.rowHeight",
+                      "rtl_mirrors": true,
+                      "children": [
+                        { "region": "batch.row.checkbox", "role": "the only control in the row; unchecked means excluded from the commit", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "size": "size.checkbox", "radius": "radius.checkbox", "surface_checked": "color.control.checkboxChecked", "surface_unchecked": "color.control.checkboxUnchecked", "rtl_mirrors": false },
+                        { "region": "batch.row.avatar", "role": "who the document is about", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "size": "size.avatar", "radius": "radius.avatar", "surface": "color.placeholder.avatar", "rtl_mirrors": false },
+                        { "region": "batch.row.label", "role": "primary identifier", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "surface": "color.placeholder.labelBar", "radius": "radius.bar", "rtl_mirrors": false },
+                        { "region": "batch.row.filler", "role": "secondary field; takes the slack so the trailing pair stays anchored", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fill", "surface": "color.placeholder.fillerBar", "radius": "radius.bar", "collapse_at": "narrow: hidden", "rtl_mirrors": false },
+                        { "region": "batch.row.status", "role": "state pill", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "surface": "color.placeholder.statusPill", "rtl_mirrors": false },
+                        { "region": "batch.row.trailing", "role": "trailing chip; it darkens on an unchecked row, which is how a flagged record is spotted in place", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "radius": "radius.checkbox", "surface": "color.placeholder.trailingChip", "surface_flagged": "color.placeholder.trailingChipFlagged", "rtl_mirrors": false }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "region": "commit",
+                  "role": "back at the near edge, reject and the one filled button at the far edge",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": { "block": "space.16", "inline": "space.24" },
+                  "gap": "space.12",
+                  "grow": "fixed",
+                  "surface": "color.surface.commitBar",
+                  "border": { "color": "color.border.card", "width": "border.width" },
+                  "collapse_at": "narrow: stays pinned to the bottom of the viewport; back becomes an icon and the filled button takes the remaining width",
+                  "rtl_mirrors": true,
+                  "children": [
+                    { "region": "commit.back", "role": "returns to the previous step without deciding", "direction": "none", "align": "center", "padding": { "block": "space.12", "inline": "space.16" }, "gap": "none", "grow": "hug", "height": "size.buttonHeight", "surface": "color.control.buttonQuiet", "radius": "radius.button", "type": "type.quietLabel", "rtl_mirrors": false },
+                    { "region": "commit.spacer", "role": "separates the back button from the deciding pair", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fill", "rtl_mirrors": false },
+                    { "region": "commit.reject", "role": "acts on the unchecked remainder; label restates its count", "direction": "none", "align": "center", "padding": { "block": "space.12", "inline": "space.16" }, "gap": "none", "grow": "hug", "height": "size.buttonHeight", "surface": "color.control.buttonQuiet", "radius": "radius.button", "type": "type.quietLabel", "rtl_mirrors": false },
+                    { "region": "commit.primary", "role": "the single committing action; label restates the checked count and the fact that the batch moves on", "direction": "none", "align": "center", "padding": { "block": "space.12", "inline": "space.26" }, "gap": "none", "grow": "hug", "height": "size.buttonHeight", "surface": "color.control.buttonCommit", "radius": "radius.button", "type": "type.commitLabel", "color": "color.text.onCommit", "rtl_mirrors": false }
+                  ]
+                }
+              ]
+            },
+            {
+              "region": "rail",
+              "role": "three advisory cards; nothing in it changes data",
+              "direction": "column",
+              "align": "start",
+              "padding": "none",
+              "gap": "space.14",
+              "grow": "fixed",
+              "width": "size.railWidth",
+              "collapse_at": "narrow: moves below the batch card at full width; the three cards may collapse to disclosures, and losing it removes no capability",
+              "rtl_mirrors": false,
+              "children": [
+                {
+                  "region": "rail.next",
+                  "role": "previews the consequence of pressing the filled button, in four short lines",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": "space.16",
+                  "gap": "space.10",
+                  "grow": "hug",
+                  "surface": "color.surface.card",
+                  "border": { "color": "color.border.card", "width": "border.width", "radius": "radius.card" },
+                  "collapse_at": "narrow: first to collapse, since it restates what the button already says",
+                  "rtl_mirrors": false,
+                  "children": [
+                    { "region": "rail.next.heading", "role": "card title", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "hug", "type": "type.cardHeading", "color": "color.text.cardLabel", "rtl_mirrors": false },
+                    {
+                      "region": "rail.next.line",
+                      "role": "one consequence; bullet then text, repeated four times",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": "none",
+                      "gap": "space.8",
+                      "grow": "fixed",
+                      "rtl_mirrors": true,
+                      "children": [
+                        { "region": "rail.next.line.bullet", "role": "marks the line", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fixed", "size": "size.bullet", "radius": "radius.checkbox", "surface": "color.placeholder.bullet", "rtl_mirrors": false },
+                        { "region": "rail.next.line.text", "role": "the consequence itself; takes the remaining width", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fill", "radius": "radius.bar", "surface": "color.placeholder.railBarWeak", "rtl_mirrors": false }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "region": "rail.flagged",
+                  "role": "pulls the unchecked records out of the batch so the operator does not hunt for them",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": "space.16",
+                  "gap": "space.10",
+                  "grow": "hug",
+                  "surface": "color.surface.card",
+                  "border": { "color": "color.border.card", "width": "border.width", "radius": "radius.card" },
+                  "collapse_at": "narrow: kept; it is the only place the exceptions are gathered",
+                  "rtl_mirrors": false,
+                  "children": [
+                    { "region": "rail.flagged.heading", "role": "card title carrying the exception count", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "hug", "type": "type.cardHeading", "color": "color.text.cardLabel", "rtl_mirrors": false },
+                    {
+                      "region": "rail.flagged.item",
+                      "role": "one excluded record and the reason for excluding it",
+                      "direction": "column",
+                      "align": "start",
+                      "padding": { "block": "space.10", "inline": "space.12" },
+                      "gap": "space.6",
+                      "grow": "fixed",
+                      "surface": "color.surface.page",
+                      "radius": "radius.flaggedCard",
+                      "rtl_mirrors": false,
+                      "children": [
+                        { "region": "rail.flagged.item.name", "role": "the record", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "fill", "radius": "radius.bar", "surface": "color.placeholder.railBarStrong", "rtl_mirrors": false },
+                        { "region": "rail.flagged.item.reason", "role": "why it sits outside the batch; shorter than the name so the pair reads as a heading and a note", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "fixed", "radius": "radius.bar", "surface": "color.placeholder.railBarWeak", "rtl_mirrors": false }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "region": "rail.queue",
+                  "role": "sizes of the stations downstream of this one",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": "space.16",
+                  "gap": "space.10",
+                  "grow": "hug",
+                  "surface": "color.surface.card",
+                  "border": { "color": "color.border.card", "width": "border.width", "radius": "radius.card" },
+                  "collapse_at": "narrow: collapses to a single line of counts",
+                  "rtl_mirrors": false,
+                  "children": [
+                    { "region": "rail.queue.heading", "role": "card title", "direction": "none", "align": "start", "padding": "none", "gap": "none", "grow": "hug", "type": "type.cardHeading", "color": "color.text.cardLabel", "rtl_mirrors": false },
+                    {
+                      "region": "rail.queue.row",
+                      "role": "one downstream station: name, a leader rule, and its count",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": "none",
+                      "gap": "space.8",
+                      "grow": "fixed",
+                      "rtl_mirrors": true,
+                      "children": [
+                        { "region": "rail.queue.row.name", "role": "station name", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "hug", "type": "type.stepIdle", "color": "color.text.railLabel", "rtl_mirrors": false },
+                        { "region": "rail.queue.row.leader", "role": "rule joining the name to its count", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "fill", "rtl_mirrors": false },
+                        { "region": "rail.queue.row.count", "role": "how many documents wait at that station", "direction": "none", "align": "center", "padding": "none", "gap": "none", "grow": "hug", "type": "type.railValue", "color": "color.text.railValue", "rtl_mirrors": false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "rtl": {
+      "mirrors": [
+        "body: the rail moves to the left and the batch card to the right",
+        "stepper: the first state takes the right edge and the last the left; the connectors run right to left",
+        "batch.row: checkbox at the right edge, trailing chip at the left",
+        "narrow: filter pills at the right, the checked count at the left",
+        "commit: back at the right edge, the filled button at the far left",
+        "rail.queue.row and rail.next.line: label at the right, value at the left"
+      ],
+      "does_not_mirror": [
+        "vertical order: the stepper stays above the body and the commit bar below the batch",
+        "the rail's three cards keep their top-to-bottom order",
+        "digits inside a count: a number reads left to right inside a right-to-left sentence",
+        "non-directional glyphs such as a person or a document icon",
+        "every dimension token in f.tokens.json; the scale is direction-blind"
+      ],
+      "mechanism": "frappe/www/app.py:62 computes layout_direction, frappe/www/app.html:2 writes it into the root dir attribute, frappe/utils/jinja_globals.py:134 swaps a rtl_-prefixed CSS bundle in place of the ltr one"
+    },
+    "frappe_surface": {
+      "two_column_split": "frappe/public/js/frappe/ui/page.js:100-106 builds col-lg-2 layout-side-section beside layout-main-section; :125 hands the sidebar back as this.sidebar",
+      "row_checkboxes": "frappe/public/js/frappe/list/list_view.js:1375-1398 wires .list-row-checkbox and the select-all header box; :1643 reads the selection with get_checked_items",
+      "selection_swaps_the_primary_action": "frappe/public/js/frappe/list/list_view.js:590-598 hides the primary action and shows the actions menu whenever the selection is non-empty; this sketch keeps the primary button visible instead",
+      "commit_is_a_bulk_workflow_transition": "frappe/public/js/frappe/model/workflow.js:91 and frappe/public/js/frappe/list/list_view.js:1802-1828 build one action per transition and call frappe.model.workflow.bulk_workflow_approval at :1815",
+      "batch_size_decides_sync_or_background": "frappe/model/workflow.py:238-253 runs inline below 20 documents, enqueues on the short queue up to 500, and throws above 500",
+      "progress_is_published_per_document": "frappe/model/workflow.py:265 calls show_progress, :356-359 publishes a percentage once the batch reaches five, through frappe.publish_progress at frappe/realtime.py:12",
+      "stepper_states": "frappe/workflow/doctype/workflow/workflow.json:16-19 defines the states and transitions tables the stepper draws from",
+      "non_workflow_batches": "frappe/public/js/frappe/list/bulk_operations.js:310 edit, :275 submit_or_cancel, :195 delete, :225 assign, :425 add_tags"
+    }
+  }
+}

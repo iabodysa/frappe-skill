@@ -1,0 +1,257 @@
+{
+  "$description": "Values decided by layout sketch E, Dashboard First. Every entry is read from the sketch's own nodes; nothing is carried in from a wider system.",
+  "font": {
+    "family": {
+      "$value": "Inter, system-ui, sans-serif",
+      "$type": "fontFamily"
+    },
+    "weight": {
+      "regular": { "$value": 400, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" }
+    }
+  },
+  "size": {
+    "$description": "The five type sizes the sketch uses, from the smallest label to the KPI figure.",
+    "label": {
+      "$value": "9px",
+      "$type": "dimension",
+      "$description": "KPI card label and the see-all escape link."
+    },
+    "card-title": {
+      "$value": "10px",
+      "$type": "dimension",
+      "$description": "Title inside an analytics card."
+    },
+    "section-title": {
+      "$value": "11px",
+      "$type": "dimension",
+      "$description": "Title in the action list header strip."
+    },
+    "page-title": { "$value": "16px", "$type": "dimension" },
+    "figure": {
+      "$value": "26px",
+      "$type": "dimension",
+      "$description": "The KPI number itself."
+    }
+  },
+  "type": {
+    "label": {
+      "$value": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "9px"
+      },
+      "$type": "typography"
+    },
+    "card-title": {
+      "$value": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "fontWeight": 600,
+        "fontSize": "10px"
+      },
+      "$type": "typography"
+    },
+    "section-title": {
+      "$value": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "fontWeight": 600,
+        "fontSize": "11px"
+      },
+      "$type": "typography"
+    },
+    "page-title": {
+      "$value": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "fontWeight": 600,
+        "fontSize": "16px"
+      },
+      "$type": "typography"
+    },
+    "figure": {
+      "$value": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "fontWeight": 600,
+        "fontSize": "26px"
+      },
+      "$type": "typography"
+    }
+  },
+  "space": {
+    "$description": "The spacing steps the sketch actually places. It is not a doubling scale; the band paddings are asymmetric by design.",
+    "1": { "$value": "4px", "$type": "dimension" },
+    "2": { "$value": "6px", "$type": "dimension" },
+    "3": { "$value": "8px", "$type": "dimension" },
+    "4": { "$value": "9px", "$type": "dimension" },
+    "5": { "$value": "10px", "$type": "dimension" },
+    "6": { "$value": "12px", "$type": "dimension" },
+    "7": { "$value": "14px", "$type": "dimension" },
+    "8": { "$value": "16px", "$type": "dimension" },
+    "9": { "$value": "18px", "$type": "dimension" },
+    "10": { "$value": "20px", "$type": "dimension" },
+    "11": { "$value": "24px", "$type": "dimension" }
+  },
+  "radius": {
+    "hairline": {
+      "$value": "2px",
+      "$type": "dimension",
+      "$description": "Placeholder bars, legend tracks, the KPI meter."
+    },
+    "bar": {
+      "$value": "3px",
+      "$type": "dimension",
+      "$description": "Column-chart bar."
+    },
+    "chip": { "$value": "4px", "$type": "dimension" },
+    "control": {
+      "$value": "6px",
+      "$type": "dimension",
+      "$description": "Page-header control."
+    },
+    "pill": {
+      "$value": "7px",
+      "$type": "dimension",
+      "$description": "Half of the 14px meta pill, so the pill is fully round."
+    },
+    "card": { "$value": "8px", "$type": "dimension" },
+    "avatar": {
+      "$value": "10px",
+      "$type": "dimension",
+      "$description": "Half of the 20px avatar, so the avatar is a circle."
+    }
+  },
+  "border": {
+    "width": { "$value": "1px", "$type": "dimension" },
+    "card": {
+      "$value": "#e6e6e6",
+      "$type": "color",
+      "$description": "The only border colour in the sketch."
+    }
+  },
+  "color": {
+    "canvas": {
+      "$value": "#f6f6f6",
+      "$type": "color",
+      "$description": "The ground the bands sit on; sampled from the rendered artboard, not from a named fill."
+    },
+    "surface": {
+      "card": { "$value": "#ffffff", "$type": "color" },
+      "header-bar": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "Page header band."
+      },
+      "section-header": {
+        "$value": "#fafafa",
+        "$type": "color",
+        "$description": "The action list's own header strip, one step off white so the strip reads as a header without a rule."
+      }
+    },
+    "text": {
+      "strong": {
+        "$value": "#262626",
+        "$type": "color",
+        "$description": "Page title and KPI figure."
+      },
+      "section": {
+        "$value": "#404040",
+        "$type": "color",
+        "$description": "Action list header title."
+      },
+      "card-title": {
+        "$value": "#666666",
+        "$type": "color",
+        "$description": "Analytics card title."
+      },
+      "muted": {
+        "$value": "#8c8c8c",
+        "$type": "color",
+        "$description": "KPI label and the see-all link."
+      }
+    },
+    "control": {
+      "header-fill": {
+        "$value": "#f2f2f2",
+        "$type": "color",
+        "$description": "The three controls on the page header's trailing side."
+      }
+    },
+    "data": {
+      "bar": {
+        "$value": "#dbdbdb",
+        "$type": "color",
+        "$description": "Every column in the twelve-bar chart carries the same fill; the sketch encodes value by height alone."
+      },
+      "meter": {
+        "$value": "#e0e0e0",
+        "$type": "color",
+        "$description": "The 4px rule under a KPI figure."
+      },
+      "series-1": { "$value": "#b8b8b8", "$type": "color" },
+      "series-2": { "$value": "#c7c7c7", "$type": "color" },
+      "series-3": { "$value": "#d6d6d6", "$type": "color" },
+      "series-4": {
+        "$value": "#e6e6e6",
+        "$type": "color",
+        "$description": "Four steps of one grey ramp, so the share chart separates by lightness alone."
+      },
+      "legend-track": { "$value": "#ebebeb", "$type": "color" }
+    },
+    "row": {
+      "avatar": { "$value": "#ebebeb", "$type": "color" },
+      "primary": {
+        "$value": "#dbdbdb",
+        "$type": "color",
+        "$description": "The fixed-width leading field of an action row."
+      },
+      "secondary": {
+        "$value": "#ededed",
+        "$type": "color",
+        "$description": "The growing field of an action row."
+      },
+      "meta": { "$value": "#f0f0f0", "$type": "color" },
+      "action": {
+        "$value": "#e0e0e0",
+        "$type": "color",
+        "$description": "The chip on the trailing side of an action row."
+      }
+    }
+  },
+  "measure": {
+    "$description": "Fixed sizes the sketch commits to. Everything not listed here grows.",
+    "page-header-height": { "$value": "64px", "$type": "dimension" },
+    "kpi-meter-height": { "$value": "4px", "$type": "dimension" },
+    "plot-height": {
+      "$value": "120px",
+      "$type": "dimension",
+      "$description": "Shared by the bar plot and the donut."
+    },
+    "donut-diameter": { "$value": "120px", "$type": "dimension" },
+    "share-card-width": {
+      "$value": "300px",
+      "$type": "dimension",
+      "$description": "The one fixed width in the whole layout."
+    },
+    "control-wide": { "$value": "110px", "$type": "dimension" },
+    "control-narrow": { "$value": "90px", "$type": "dimension" },
+    "control-height": { "$value": "28px", "$type": "dimension" },
+    "row-height": { "$value": "38px", "$type": "dimension" },
+    "avatar-size": { "$value": "20px", "$type": "dimension" },
+    "row-primary-width": { "$value": "150px", "$type": "dimension" },
+    "row-meta-width": { "$value": "80px", "$type": "dimension" },
+    "row-meta-height": { "$value": "14px", "$type": "dimension" },
+    "row-action-width": { "$value": "64px", "$type": "dimension" },
+    "row-action-height": { "$value": "18px", "$type": "dimension" },
+    "legend-swatch": { "$value": "9px", "$type": "dimension" },
+    "legend-track-height": { "$value": "7px", "$type": "dimension" }
+  },
+  "count": {
+    "kpi-cards": { "$value": 5, "$type": "number" },
+    "chart-bars": { "$value": 12, "$type": "number" },
+    "legend-rows": { "$value": 4, "$type": "number" },
+    "preview-rows": {
+      "$value": 6,
+      "$type": "number",
+      "$description": "Rows shown before the see-all escape."
+    }
+  }
+}

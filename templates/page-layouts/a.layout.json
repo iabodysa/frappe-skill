@@ -1,0 +1,564 @@
+{
+  "page_layout": {
+    "shape": {
+      "version": "1",
+      "node_keys": [
+        "region",
+        "role",
+        "direction",
+        "align",
+        "padding",
+        "gap",
+        "grow",
+        "collapse_at",
+        "rtl_mirrors",
+        "children"
+      ],
+      "region": "unique id within this file",
+      "role": "what the region is for, in one phrase",
+      "direction": "row | column",
+      "align": "cross-axis alignment of the region's own children: start | center | stretch",
+      "padding": "{ block, inline } as dotted token paths into a.tokens.json",
+      "gap": "dotted token path into a.tokens.json",
+      "grow": "fixed | fill",
+      "size": "dotted token path for a fixed region's extent along its parent's direction",
+      "collapse_at": "narrow-screen breakpoint at which the region drops or reflows, or null",
+      "rtl_mirrors": "true when the region's child order reverses under right-to-left",
+      "token_source": "a.tokens.json",
+      "breakpoints": {
+        "sm": "the range the Desk class hidden-xs already covers, per frappe/public/scss/desk/global.scss:140",
+        "md": "one step wider than sm"
+      }
+    },
+    "letter": "A",
+    "name": "Dense Desk",
+    "suits": "a high-volume operator work queue with a fixed column set and bulk action as the main verb",
+    "frame": {
+      "width": 1280,
+      "height": 820,
+      "unit": "px"
+    },
+    "region": "page",
+    "role": "full-bleed stack of six bands, no sidebar and no card",
+    "direction": "column",
+    "align": "stretch",
+    "padding": {
+      "block": null,
+      "inline": null
+    },
+    "gap": null,
+    "grow": "fill",
+    "collapse_at": null,
+    "rtl_mirrors": false,
+    "children": [
+      {
+        "region": "topbar",
+        "role": "page identity and the summary counters",
+        "direction": "row",
+        "align": "center",
+        "padding": {
+          "block": "dimension.space.padBlockTopbar",
+          "inline": "dimension.space.edge"
+        },
+        "gap": "dimension.space.band",
+        "grow": "fixed",
+        "size": "dimension.size.bandTopbar",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "topbar.brand",
+            "role": "page name",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "topbar.rule",
+            "role": "filler rule that absorbs the free width between brand and counters",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "size": "dimension.size.rule",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "topbar.counters",
+            "role": "four counter chips, each a figure plus a category word",
+            "direction": "row",
+            "align": "center",
+            "padding": {
+              "block": "dimension.space.controlPadBlock",
+              "inline": "dimension.space.controlPadInline"
+            },
+            "gap": "dimension.space.chipInner",
+            "grow": "fixed",
+            "collapse_at": "sm",
+            "rtl_mirrors": true,
+            "count": 4
+          }
+        ]
+      },
+      {
+        "region": "filters",
+        "role": "nine equal-width filter controls in one row",
+        "direction": "row",
+        "align": "start",
+        "padding": {
+          "block": "dimension.space.padBlockRelaxed",
+          "inline": "dimension.space.edge"
+        },
+        "gap": "dimension.space.band",
+        "grow": "fixed",
+        "size": "dimension.size.bandFilters",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "filters.control",
+            "role": "one filter; every control shares the band width evenly",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "size": "dimension.size.filterHeight",
+            "collapse_at": "md",
+            "rtl_mirrors": false,
+            "count": 9
+          }
+        ]
+      },
+      {
+        "region": "bulkbar",
+        "role": "selection count, the verbs that apply to it, and the total row count",
+        "direction": "row",
+        "align": "center",
+        "padding": {
+          "block": "dimension.space.padBlockTight",
+          "inline": "dimension.space.edge"
+        },
+        "gap": "dimension.space.band",
+        "grow": "fixed",
+        "size": "dimension.size.bandBulkbar",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "bulkbar.selection",
+            "role": "count of checked rows",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "bulkbar.actions",
+            "role": "five bulk-action buttons in source order",
+            "direction": "row",
+            "align": "start",
+            "padding": {
+              "block": "dimension.space.controlPadBlock",
+              "inline": "dimension.space.controlPadInline"
+            },
+            "gap": "dimension.space.band",
+            "grow": "fixed",
+            "collapse_at": "sm",
+            "rtl_mirrors": true,
+            "count": 5
+          },
+          {
+            "region": "bulkbar.rule",
+            "role": "filler rule between the actions and the total count",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "size": "dimension.size.rule",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "bulkbar.total",
+            "role": "total rows matching the current filters",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          }
+        ]
+      },
+      {
+        "region": "thead",
+        "role": "column labels, fixed widths shared with every row",
+        "direction": "row",
+        "align": "start",
+        "padding": {
+          "block": "dimension.space.padBlockTight",
+          "inline": "dimension.space.edge"
+        },
+        "gap": "dimension.space.column",
+        "grow": "fixed",
+        "size": "dimension.size.bandColumnHeader",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "thead.select",
+            "role": "label slot above the row selector",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.select",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.subject",
+            "role": "record name label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.subject",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.date",
+            "role": "expiry date label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.date",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.status",
+            "role": "status label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.status",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.org",
+            "role": "owning organisation label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.wide",
+            "collapse_at": "md",
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.department",
+            "role": "department label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.medium",
+            "collapse_at": "md",
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.reference",
+            "role": "payment reference label",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.wide",
+            "collapse_at": "sm",
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.amount",
+            "role": "numeric label, aligned to the column's trailing edge in both directions",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "size": "dimension.column.narrow",
+            "collapse_at": "sm",
+            "rtl_mirrors": false
+          },
+          {
+            "region": "thead.trailing",
+            "role": "unlabelled slot above the per-row action chip; it absorbs the free width in the header band only",
+            "direction": "row",
+            "align": "start",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          }
+        ]
+      },
+      {
+        "region": "rows",
+        "role": "the table body; sixteen rows visible, no horizontal rules, zebra carries the boundary",
+        "direction": "column",
+        "align": "stretch",
+        "padding": null,
+        "gap": null,
+        "grow": "fill",
+        "collapse_at": null,
+        "rtl_mirrors": false,
+        "children": [
+          {
+            "region": "rows.row",
+            "role": "one record; column widths repeat the header exactly",
+            "direction": "row",
+            "align": "center",
+            "padding": {
+              "block": "dimension.space.padBlockTight",
+              "inline": "dimension.space.edge"
+            },
+            "gap": "dimension.space.column",
+            "grow": "fixed",
+            "size": "dimension.size.rowHeight",
+            "collapse_at": null,
+            "rtl_mirrors": true,
+            "children": [
+              {
+                "region": "rows.row.select",
+                "role": "row selector",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.size.checkbox",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.subject",
+                "role": "record name, clipped at the column edge",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.subject",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.date",
+                "role": "expiry date; Latin digits inside an Arabic run, so the field is isolated from its surroundings",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.date",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.status",
+                "role": "status; the heaviest content weight in the row",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.status",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.org",
+                "role": "owning organisation",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.wide",
+                "collapse_at": "md",
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.department",
+                "role": "department",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.medium",
+                "collapse_at": "md",
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.reference",
+                "role": "payment reference",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.wide",
+                "collapse_at": "sm",
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.amount",
+                "role": "numeric amount, aligned to the column's trailing edge in both directions",
+                "direction": "row",
+                "align": "start",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.narrow",
+                "collapse_at": "sm",
+                "rtl_mirrors": false
+              },
+              {
+                "region": "rows.row.action",
+                "role": "per-row action chip; fixed width, and it trails the last data column instead of pinning to the page edge",
+                "direction": "row",
+                "align": "center",
+                "padding": null,
+                "gap": null,
+                "grow": "fixed",
+                "size": "dimension.column.action",
+                "collapse_at": null,
+                "rtl_mirrors": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "region": "paging",
+        "role": "page-number run and page size, split by the same filler rule the topbar uses",
+        "direction": "row",
+        "align": "center",
+        "padding": {
+          "block": "dimension.space.padBlockRelaxed",
+          "inline": "dimension.space.edge"
+        },
+        "gap": "dimension.space.band",
+        "grow": "fixed",
+        "size": "dimension.size.bandPaging",
+        "collapse_at": null,
+        "rtl_mirrors": true,
+        "children": [
+          {
+            "region": "paging.pages",
+            "role": "page-number run",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "collapse_at": null,
+            "rtl_mirrors": true
+          },
+          {
+            "region": "paging.rule",
+            "role": "filler rule between the run and the page size",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fill",
+            "size": "dimension.size.rule",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          },
+          {
+            "region": "paging.size",
+            "role": "rows fetched per page",
+            "direction": "row",
+            "align": "center",
+            "padding": null,
+            "gap": null,
+            "grow": "fixed",
+            "collapse_at": null,
+            "rtl_mirrors": false
+          }
+        ]
+      }
+    ],
+    "narrow_screen": {
+      "md": [
+        "thead.org and rows.row.org drop",
+        "thead.department and rows.row.department drop",
+        "filters.control stops holding a readable label below roughly 1000px, and the band has no wrap rule designed into it"
+      ],
+      "sm": [
+        "thead.reference and rows.row.reference drop",
+        "thead.amount and rows.row.amount drop",
+        "topbar.counters drop, leaving the brand alone in the topbar",
+        "bulkbar.actions collapse behind a single menu affordance"
+      ],
+      "always_visible": [
+        "rows.row.select",
+        "rows.row.subject",
+        "rows.row.status",
+        "rows.row.date",
+        "rows.row.action",
+        "bulkbar.selection",
+        "paging.pages"
+      ],
+      "reorder": "no region changes its position in the stack at any width; a narrow screen only drops columns and controls"
+    },
+    "rtl": {
+      "mirrors": [
+        "child order inside topbar, filters, bulkbar, thead, rows.row and paging",
+        "the order of the counter chips inside topbar.counters",
+        "the order of the buttons inside bulkbar.actions",
+        "the page-number run inside paging.pages",
+        "the side the ellipsis lands on when a fixed-width cell clips its text"
+      ],
+      "holds": [
+        "band order down the page",
+        "every band height and the row height",
+        "the zebra phase",
+        "the inline page padding, which is symmetric",
+        "every gap and every column width"
+      ],
+      "logical_properties_required": [
+        "numeric alignment in rows.row.amount is written as end-alignment rather than as a physical right",
+        "text clipping in rows.row.subject is written against the inline-end edge",
+        "the Latin digits in rows.row.date and rows.row.reference are isolated from the surrounding run"
+      ]
+    }
+  }
+}

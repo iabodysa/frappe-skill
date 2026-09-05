@@ -1,0 +1,37 @@
+{
+ "contract": "A leaf names a product, a file inside that product and the symbol it read. The version, the repository and the tag live here, once, so a leaf carries no line number and does not go stale when the code moves.",
+ "products": {
+  "frappe": {
+   "repository": "https://github.com/frappe/frappe",
+   "version": "15.109.0",
+   "tag": "v15.109.0",
+   "root": "frappe"
+  },
+  "erpnext": {
+   "repository": "https://github.com/frappe/erpnext",
+   "version": "15.109.3",
+   "tag": "v15.109.3",
+   "root": "erpnext"
+  },
+  "hrms": {
+   "repository": "https://github.com/frappe/hrms",
+   "version": "15.60.3",
+   "tag": "v15.60.3",
+   "root": "hrms"
+  },
+  "bench": {
+   "repository": "https://github.com/frappe/bench",
+   "version": "5.29.1",
+   "tag": "v5.29.1",
+   "root": "bench"
+  },
+  "frappe-ui": {
+   "repository": "https://github.com/frappe/frappe-ui",
+   "version": "0.1.278",
+   "tag": "v0.1.278",
+   "root": "src"
+  }
+ },
+ "link": "<repository>/blob/<tag>/<file>",
+ "override": "A leaf carrying its own verified_version was read against that version and not against the one declared here."
+}

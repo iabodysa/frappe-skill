@@ -1,0 +1,116 @@
+{
+  "space": {
+    "1": { "$value": "1px", "$type": "dimension", "$description": "Hairline rule and leader line thickness." },
+    "4": { "$value": "4px", "$type": "dimension", "$description": "Gap between rail rows." },
+    "5": { "$value": "5px", "$type": "dimension", "$description": "Gap between the two lines of a list row." },
+    "6": { "$value": "6px", "$type": "dimension", "$description": "Gap between a field label and its value." },
+    "7": { "$value": "7px", "$type": "dimension", "$description": "Vertical padding inside a rail row." },
+    "8": { "$value": "8px", "$type": "dimension", "$description": "Gap inside a rail row, between header chips, above the chip row, and at the top of the history band." },
+    "9": { "$value": "9px", "$type": "dimension", "$description": "Vertical padding of a button and of a field row." },
+    "10": { "$value": "10px", "$type": "dimension", "$description": "Horizontal padding inside a rail row; gap between action-bar buttons; gap between history lines; vertical padding of a list row." },
+    "12": { "$value": "12px", "$type": "dimension", "$description": "Rail side padding, list-column side padding, search header padding." },
+    "14": { "$value": "14px", "$type": "dimension", "$description": "Horizontal padding of a secondary button." },
+    "16": { "$value": "16px", "$type": "dimension", "$description": "Rail top and bottom padding; gap between the two field columns; action-bar vertical padding." },
+    "18": { "$value": "18px", "$type": "dimension", "$description": "Horizontal padding of the primary button." },
+    "20": { "$value": "20px", "$type": "dimension", "$description": "Bottom padding of the record header and of the history band." },
+    "24": { "$value": "24px", "$type": "dimension", "$description": "Top padding of the record header." },
+    "28": { "$value": "28px", "$type": "dimension", "$description": "Side padding of every band in the record pane." }
+  },
+  "radius": {
+    "2": { "$value": "2px", "$type": "dimension", "$description": "Text placeholder bars." },
+    "3": { "$value": "3px", "$type": "dimension", "$description": "List row accent bar and record title bar." },
+    "5": { "$value": "5px", "$type": "dimension", "$description": "Rail row." },
+    "6": { "$value": "6px", "$type": "dimension", "$description": "Search field and action-bar buttons." },
+    "full": { "$value": "7px", "$type": "dimension", "$description": "Half the 14px height of a chip or status pill, giving a full round end." }
+  },
+  "border": {
+    "hairline": { "$value": "1px", "$type": "dimension", "$description": "Divider above the action bar and the action bar's own border." }
+  },
+  "size": {
+    "rail": {
+      "width": { "$value": "210px", "$type": "dimension" },
+      "row": {
+        "height": { "$value": "26px", "$type": "dimension" },
+        "dot": { "$value": "8px", "$type": "dimension" }
+      }
+    },
+    "list": {
+      "width": { "$value": "340px", "$type": "dimension" },
+      "header": { "$value": "52px", "$type": "dimension", "$description": "Height of the search band." },
+      "search": { "$value": "28px", "$type": "dimension", "$description": "Height of the search field." },
+      "row": {
+        "height": { "$value": "50px", "$type": "dimension" },
+        "accent": {
+          "width": { "$value": "6px", "$type": "dimension" },
+          "height": { "$value": "30px", "$type": "dimension" }
+        }
+      }
+    },
+    "record": {
+      "min": { "$value": "640px", "$type": "dimension", "$description": "Width below which the record pane stops reading comfortably." },
+      "header": { "$value": "84px", "$type": "dimension" },
+      "field": { "$value": "42px", "$type": "dimension", "$description": "Height of one two-column field row." },
+      "actions": { "$value": "63px", "$type": "dimension" }
+    },
+    "pill": {
+      "height": { "$value": "14px", "$type": "dimension", "$description": "Status pill in a list row and chip in the record header." }
+    },
+    "marker": {
+      "dot": { "$value": "8px", "$type": "dimension", "$description": "History event marker." }
+    }
+  },
+  "color": {
+    "surface": {
+      "rail": { "$value": "#f7f7f7", "$type": "color", "$description": "Rail background, and the resting background of an unselected rail row." },
+      "pane": { "$value": "#ffffff", "$type": "color", "$description": "List column, record header, field band and action bar." },
+      "quiet": { "$value": "#fbfbfb", "$type": "color", "$description": "History band, set back from the pane." },
+      "field": { "$value": "#f2f2f2", "$type": "color", "$description": "Search input." },
+      "selected": {
+        "rail": { "$value": "#e6e6e6", "$type": "color", "$description": "Selected rail row." },
+        "row": { "$value": "#f0f0f0", "$type": "color", "$description": "Selected list row." }
+      },
+      "control": { "$value": "#f0f0f0", "$type": "color", "$description": "Secondary action buttons." },
+      "primary": { "$value": "#404040", "$type": "color", "$description": "Primary action button." },
+      "pill": { "$value": "#ededed", "$type": "color", "$description": "Status pill and header chip." }
+    },
+    "line": {
+      "divider": { "$value": "#e6e6e6", "$type": "color", "$description": "Rule above the action bar and the action bar's border." }
+    },
+    "accent": {
+      "rest": { "$value": "#e0e0e0", "$type": "color", "$description": "List row accent bar, unselected." },
+      "active": { "$value": "#999999", "$type": "color", "$description": "List row accent bar, selected." }
+    },
+    "marker": {
+      "rail": { "$value": "#b8b8b8", "$type": "color", "$description": "Dot beside a rail row label." },
+      "history": { "$value": "#d9d9d9", "$type": "color", "$description": "Dot beside a history line." }
+    },
+    "placeholder": {
+      "title": { "$value": "#d1d1d1", "$type": "color", "$description": "Record title bar." },
+      "strong": { "$value": "#d9d9d9", "$type": "color", "$description": "First line of a list row, and a field label." },
+      "weak": { "$value": "#ebebeb", "$type": "color", "$description": "Second line of a list row, a field value, and a history line." }
+    },
+    "text": {
+      "brand": { "$value": "#333333", "$type": "color", "$description": "App name at the top of the rail." },
+      "body": { "$value": "#4d4d4d", "$type": "color", "$description": "Rail row label." },
+      "control": { "$value": "#595959", "$type": "color", "$description": "Secondary button label." },
+      "heading": { "$value": "#6b6b6b", "$type": "color", "$description": "Band heading inside the record pane." },
+      "muted": { "$value": "#8c8c8c", "$type": "color", "$description": "Rail count and the keyboard hint." },
+      "inverse": { "$value": "#fafafa", "$type": "color", "$description": "Primary button label." }
+    }
+  },
+  "font": {
+    "family": {
+      "ui": { "$value": ["Inter", "sans-serif"], "$type": "fontFamily" }
+    },
+    "weight": {
+      "regular": { "$value": 400, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight", "$description": "Brand, selected rail row, band heading, primary button label." }
+    },
+    "size": {
+      "count": { "$value": "9px", "$type": "dimension", "$description": "Rail count and the keyboard hint." },
+      "label": { "$value": "10px", "$type": "dimension", "$description": "Rail row label and band heading." },
+      "control": { "$value": "11px", "$type": "dimension", "$description": "Action-bar button labels." },
+      "brand": { "$value": "12px", "$type": "dimension", "$description": "App name at the top of the rail." }
+    }
+  }
+}

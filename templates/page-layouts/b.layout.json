@@ -1,0 +1,388 @@
+{
+  "page_layout": {
+    "schema": {
+      "version": "1",
+      "token_file": "b.tokens.json",
+      "token_reference": "A string of the form $token.<dotted path> resolves against token_file; the value lives there and never here.",
+      "region_keys": ["region", "role", "direction", "align", "padding", "gap", "grow", "collapse_at", "rtl_mirrors", "children"],
+      "direction_values": ["row", "column"],
+      "grow_values": ["fixed", "fill", "slack"],
+      "grow_meaning": {
+        "fixed": "Keeps its own size; the parent's spare space passes it by.",
+        "fill": "Takes an equal share of the parent's spare space with every other fill sibling.",
+        "slack": "Takes all remaining space alone, so that fixed siblings after it are pushed to the far edge."
+      }
+    },
+
+    "sketch": {
+      "letter": "B",
+      "name": "Status Board",
+      "school": "kanban",
+      "one_line": "The pipeline is the screen; a row moves by dragging it from one column to the next.",
+      "frame": { "width": 1280, "height": 820 }
+    },
+
+    "root": {
+      "region": "frame",
+      "role": "page",
+      "direction": "column",
+      "align": "start",
+      "padding": "0",
+      "gap": "0",
+      "grow": "fill",
+      "surface": "$token.surface.frame",
+      "border": { "width": "$token.border.width", "color": "$token.border.frame" },
+      "radius": "$token.radius.frame",
+      "overflow": "clip",
+      "collapse_at": null,
+      "rtl_mirrors": false,
+      "children": [
+
+        {
+          "region": "header",
+          "role": "page_header",
+          "direction": "row",
+          "align": "center",
+          "padding": { "block": "$token.space.xl", "inline": "$token.space.edge" },
+          "gap": "$token.space.sm",
+          "grow": "fixed",
+          "surface": "$token.surface.frame",
+          "collapse_at": null,
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "page_title",
+              "role": "title",
+              "direction": "row",
+              "align": "center",
+              "padding": "0",
+              "gap": "0",
+              "grow": "fixed",
+              "typography": "$token.type.page_title",
+              "color": "$token.text.title",
+              "wrap": false,
+              "collapse_at": null,
+              "rtl_mirrors": true
+            },
+            {
+              "region": "header_slack",
+              "role": "spacer_rule",
+              "direction": "row",
+              "align": "center",
+              "padding": "0",
+              "gap": "0",
+              "grow": "slack",
+              "height": "$token.space.hairline",
+              "surface": "$token.surface.rule",
+              "note": "The mechanism that parks the controls at the far edge; a longer title shortens this and never the controls.",
+              "collapse_at": null,
+              "rtl_mirrors": true
+            },
+            {
+              "region": "header_controls",
+              "role": "action_group",
+              "direction": "row",
+              "align": "center",
+              "padding": "0",
+              "gap": "$token.space.sm",
+              "grow": "fixed",
+              "count": 4,
+              "item": {
+                "region": "header_control",
+                "role": "action",
+                "width": "$token.size.control_width",
+                "height": "$token.size.control_height",
+                "radius": "$token.radius.control",
+                "surface": "$token.surface.control"
+              },
+              "collapse_at": { "width": 1024, "behaviour": "overflow_menu", "keep_visible": 1 },
+              "rtl_mirrors": true
+            }
+          ]
+        },
+
+        {
+          "region": "filters",
+          "role": "filter_bar",
+          "direction": "row",
+          "align": "start",
+          "padding": { "top": "0", "bottom": "$token.space.band", "inline": "$token.space.edge" },
+          "gap": "$token.space.sm",
+          "grow": "fixed",
+          "surface": "$token.surface.frame",
+          "wrap": false,
+          "overflow": "scroll_inline",
+          "children": [
+            {
+              "region": "filter_chip",
+              "role": "applied_filter",
+              "direction": "row",
+              "align": "center",
+              "padding": "0",
+              "gap": "0",
+              "grow": "fixed",
+              "count": 5,
+              "height": "$token.size.chip_height",
+              "radius": "$token.radius.chip",
+              "surface": "$token.surface.chip",
+              "width": "content",
+              "collapse_at": null,
+              "rtl_mirrors": true
+            }
+          ],
+          "collapse_at": { "width": 768, "behaviour": "collapse_to_count_button" },
+          "rtl_mirrors": true
+        },
+
+        {
+          "region": "board",
+          "role": "pipeline",
+          "direction": "row",
+          "align": "start",
+          "padding": { "top": "$token.space.xl", "bottom": "$token.space.edge", "inline": "$token.space.edge" },
+          "gap": "$token.space.lg",
+          "grow": "fill",
+          "surface": "$token.surface.board",
+          "overflow": "scroll_inline",
+          "note": "The only region that carries the page scroll.",
+          "collapse_at": { "width": 900, "behaviour": "one_column_at_a_time", "control": "stage_switcher_replacing_the_board_row" },
+          "rtl_mirrors": true,
+          "children": [
+            {
+              "region": "column",
+              "role": "stage",
+              "direction": "column",
+              "align": "start",
+              "padding": "$token.space.md",
+              "gap": "$token.space.sm",
+              "grow": "fill",
+              "count": 5,
+              "height": "full",
+              "min_width": 200,
+              "surface": "$token.surface.frame",
+              "border": { "width": "$token.border.width", "color": "$token.border.column" },
+              "radius": "$token.radius.column",
+              "overflow": "clip",
+              "height_note": "Holds full board height whatever its card count, so column fill reads as pile size.",
+              "collapse_at": null,
+              "rtl_mirrors": true,
+              "children": [
+                {
+                  "region": "column_header",
+                  "role": "stage_label",
+                  "direction": "row",
+                  "align": "center",
+                  "padding": "0",
+                  "gap": "$token.space.xs",
+                  "grow": "fixed",
+                  "height": "$token.size.column_header_height",
+                  "collapse_at": null,
+                  "rtl_mirrors": true,
+                  "children": [
+                    {
+                      "region": "stage_name",
+                      "role": "label",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": "0",
+                      "gap": "0",
+                      "grow": "fixed",
+                      "typography": "$token.type.column_label",
+                      "color": "$token.text.column_label",
+                      "wrap": false,
+                      "collapse_at": null,
+                      "rtl_mirrors": true
+                    },
+                    {
+                      "region": "header_rule",
+                      "role": "spacer_rule",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": "0",
+                      "gap": "0",
+                      "grow": "slack",
+                      "height": "$token.space.hairline",
+                      "surface": "$token.surface.rule",
+                      "collapse_at": null,
+                      "rtl_mirrors": true
+                    },
+                    {
+                      "region": "stage_count",
+                      "role": "count",
+                      "direction": "row",
+                      "align": "center",
+                      "padding": "0",
+                      "gap": "0",
+                      "grow": "fixed",
+                      "typography": "$token.type.column_count",
+                      "color": "$token.text.count",
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "digits_stay_ltr": true
+                    }
+                  ]
+                },
+                {
+                  "region": "card_stack",
+                  "role": "drop_target",
+                  "direction": "column",
+                  "align": "start",
+                  "padding": "0",
+                  "gap": "$token.space.sm",
+                  "grow": "fill",
+                  "overflow": "scroll_block",
+                  "visible_items": "$token.grid.cards_per_column_visible",
+                  "collapse_at": null,
+                  "rtl_mirrors": false,
+                  "children": [
+                    {
+                      "region": "card",
+                      "role": "record",
+                      "direction": "column",
+                      "align": "start",
+                      "padding": "$token.space.md",
+                      "gap": "$token.space.xs",
+                      "grow": "fixed",
+                      "height": "$token.size.card_height",
+                      "surface": "$token.surface.card",
+                      "border": { "width": "$token.border.width", "color": "$token.border.card" },
+                      "radius": "$token.radius.card",
+                      "draggable": true,
+                      "collapse_at": null,
+                      "rtl_mirrors": true,
+                      "children": [
+                        {
+                          "region": "card_title",
+                          "role": "record_title",
+                          "direction": "row",
+                          "align": "start",
+                          "padding": "0",
+                          "gap": "0",
+                          "grow": "fixed",
+                          "height": "$token.size.card_title_height",
+                          "radius": "$token.radius.bar",
+                          "surface": "$token.content.strong",
+                          "width": "full",
+                          "truncate": true,
+                          "collapse_at": null,
+                          "rtl_mirrors": true
+                        },
+                        {
+                          "region": "card_meta",
+                          "role": "record_subtitle",
+                          "direction": "row",
+                          "align": "start",
+                          "padding": "0",
+                          "gap": "0",
+                          "grow": "fixed",
+                          "height": "$token.size.card_meta_height",
+                          "radius": "$token.radius.bar",
+                          "surface": "$token.content.weak",
+                          "width": "full",
+                          "truncate": true,
+                          "collapse_at": null,
+                          "rtl_mirrors": true
+                        },
+                        {
+                          "region": "card_tags",
+                          "role": "tag_row",
+                          "direction": "row",
+                          "align": "start",
+                          "padding": "0",
+                          "gap": "$token.space.xs",
+                          "grow": "fixed",
+                          "count": "$token.grid.tags_per_card",
+                          "item": {
+                            "region": "tag",
+                            "role": "fact",
+                            "height": "$token.size.tag_height",
+                            "radius": "$token.radius.tag",
+                            "surface": "$token.surface.tag",
+                            "width": "content"
+                          },
+                          "collapse_at": { "width": 900, "behaviour": "drop_second_tag" },
+                          "rtl_mirrors": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "narrow": {
+      "$description": "What the page does as the viewport shrinks. Bands keep their stacking order at every width; only rows change.",
+      "breakpoints": [
+        {
+          "width": 1024,
+          "changes": [
+            "header_controls collapses to one visible action plus an overflow menu",
+            "board keeps five columns and starts scrolling along the inline axis"
+          ]
+        },
+        {
+          "width": 900,
+          "changes": [
+            "board shows one column at a time, driven by a stage switcher that replaces the board row",
+            "card_tags drops its second tag"
+          ]
+        },
+        {
+          "width": 768,
+          "changes": [
+            "filters collapses to a single button carrying the applied-filter count",
+            "column takes the full width of the board region"
+          ]
+        }
+      ],
+      "never_reorders": [
+        "The band order header, filters, board holds at every width; the page reads top to bottom the same way.",
+        "Inside a card, title before meta before tags holds at every width."
+      ]
+    },
+
+    "rtl": {
+      "$description": "What the mirrored build changes and what it leaves alone.",
+      "mirrors": [
+        "header: title takes the trailing edge, header_controls take the leading edge, and the four controls reverse among themselves",
+        "filters: the chip row starts at the trailing edge",
+        "board: the column order reverses, so the first stage sits at the trailing edge and the pipeline runs with the language",
+        "board: the inline scroll direction reverses",
+        "column_header: stage_name takes the trailing edge, stage_count takes the leading edge, header_rule stays between them",
+        "card: card_title and card_meta start at the trailing edge",
+        "card_tags: the two tags reverse their order"
+      ],
+      "does_not_mirror": [
+        "The vertical stack of the three bands.",
+        "The vertical stack inside a card and inside a column.",
+        "Every padding and gap value, because each is symmetric in this sketch.",
+        "Every radius, because each shape carries one uniform corner.",
+        "Digits inside stage_count and inside any record identifier keep left-to-right order within a right-to-left line, so the element holding a mixed Arabic and Latin string carries an explicit direction."
+      ],
+      "mechanism": "A build-time mirrored stylesheet keyed to the language, not a runtime class on the page. Flex rows with symmetric padding mirror without a hand-written rule."
+    },
+
+    "frappe_surface": {
+      "$description": "Where each region lands on the Desk Kanban view, cited from installed source.",
+      "board_document": "frappe/desk/doctype/kanban_board/kanban_board.json:29-52",
+      "column_markup": "frappe/public/js/frappe/views/kanban/kanban_column.html:1-27",
+      "card_markup": "frappe/public/js/frappe/views/kanban/kanban_card.html:1-24",
+      "card_drag": "frappe/public/js/frappe/views/kanban/kanban_board.bundle.js:583-607",
+      "column_drag": "frappe/public/js/frappe/views/kanban/kanban_board.bundle.js:364-370",
+      "stage_write": "frappe/desk/doctype/kanban_board/kanban_board.py:131-137",
+      "column_geometry": "frappe/public/scss/desk/kanban.scss:16-35",
+      "header_actions": "frappe/public/js/frappe/ui/page.js:134-140,319",
+      "filter_bar": "frappe/public/js/frappe/list/base_list.js:879-898",
+      "rtl_switch": "frappe/utils/jinja_globals.py:128-146",
+      "rtl_build": "esbuild/esbuild.js:176-181",
+      "absent_upstream": {
+        "stage_count": "No count element exists in kanban_column.html and none is rendered in kanban_board.bundle.js; the only count in that file is comment_count at lines 760-763.",
+        "bounded_column": "frappe/public/js/frappe/views/kanban/kanban_view.js:80 sets page_length to 0, so the view requests the whole result set rather than a page of it."
+      }
+    }
+  }
+}

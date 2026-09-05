@@ -1,0 +1,256 @@
+hops	file	leaf
+tasks/build-a-vue-front-end-on-frappe-ui.md	references/theming-what-survives-an-update.md	knowledge/bench/seeds.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	references/theming-what-survives-an-update.md	knowledge/desk/branding.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	references/theming-what-survives-an-update.md	knowledge/desk/navbar.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	references/theming-what-survives-an-update.md	knowledge/desk/website-theme.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/button.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/create-resource.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/directives.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/doc-store.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/document-resource.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/frappe-request.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/idb-store.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/list-resource.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/lucide-icons.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/realtime.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/tailwind-preset.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/theme.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/toast.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/use-call.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/use-doctype.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/use-list.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/use-new-doc.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/vite-plugin.md
+tasks/build-a-vue-front-end-on-frappe-ui.md	knowledge/ui/zoom-pan.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/connected-app.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/credential-storage.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/inbound-verification.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/integration-request.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/integration-settings.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/outbound-http.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/rest-routes.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/webhook.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/whatsapp.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/api/whitelisted-method.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/desk/server-script.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/job/rate-limiter.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/permission/csrf.md
+tasks/call-an-outside-service-or-be-called-by-one.md	knowledge/permission/portal_identity.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/choosing-a-naming-rule-and-keeping-the-tests-off-its-counter.md	knowledge/bench/fixtures.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/bench/hooks.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/bench/migrate.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/bench/patches.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/choosing-a-naming-rule-and-keeping-the-tests-off-its-counter.md	knowledge/bench/records.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/choosing-a-naming-rule-and-keeping-the-tests-off-its-counter.md	knowledge/bench/runner.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/bench/standard-json.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/bench/tree.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/desk/formatters.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/desk/select.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/desk/workspace.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/action.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/autoname.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/cancel.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/changelog-popup.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/document/copy.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/db-set.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/defaults.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/document/delete-doc.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-files-an-app-is-made-of-and-what-each-one-declares.md	knowledge/document/derived-names.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/doctype-update-hook.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/doctype.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/get-default-company.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/hooks.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/naming-series.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/document/read-shortcuts.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/read.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/rename-doc.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/rename-field.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/save.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/submit.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/transaction.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/unique-index.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/validation.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/document/workflow-action-orphans.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/cache-decorators.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/format-helpers.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/get-last-day.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/get-users-with-role.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/job/list-indicator-precedence.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/qrcode.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/render-address.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/stdlib-wrappers.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/frappe-is-shorter-than-you-wrote-it.md	knowledge/job/week-boundary.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	knowledge/permission/accessor.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/permission/hooks.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/permission/permlevel.md
+tasks/change-a-doctype-without-breaking-its-lifecycle.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/permission/user_permission.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/api/whitelisted-method.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/desk/hiding-a-doctype.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/desk/report.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/desk/roles.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/desk/row-scope.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/desk/workspace.md
+tasks/decide-who-can-read-or-change-a-record.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/document/cancel.md
+tasks/decide-who-can-read-or-change-a-record.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/document/db-set.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/document/read.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/document/role-auto-created.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/document/states.md
+tasks/decide-who-can-read-or-change-a-record.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/document/transaction.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/document/transitions.md
+tasks/decide-who-can-read-or-change-a-record.md	references/the-checked-and-unchecked-spelling-of-a-read-and-a-write.md	knowledge/document/validation.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/job/notification.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/accessor.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/csrf.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/docperm.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/hooks.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/permlevel.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/portal_identity.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/role.md
+tasks/decide-who-can-read-or-change-a-record.md	references/permissions.md	knowledge/permission/subledger.md
+tasks/decide-who-can-read-or-change-a-record.md	knowledge/permission/user_permission.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/delivering-to-a-site-that-is-already-running.md	knowledge/bench/build.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/case.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/delivering-to-a-site-that-is-already-running.md	knowledge/bench/config.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/custom-docperm.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/delivering-to-a-site-that-is-already-running.md	knowledge/bench/custom-json.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/fixtures.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/hooks.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/install-app.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/migrate.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-commands-that-create-an-app-a-site-and-an-install.md	knowledge/bench/new-site.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/patches.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/choosing-a-naming-rule-and-keeping-the-tests-off-its-counter.md	knowledge/bench/records.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/bench/rollback.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/choosing-a-naming-rule-and-keeping-the-tests-off-its-counter.md	knowledge/bench/runner.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/seeds.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/delivering-to-a-site-that-is-already-running.md	knowledge/bench/setup.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/delivering-to-a-site-that-is-already-running.md	knowledge/bench/site-commands.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/standard-json.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/bench/tree.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/client-script.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/dashboard-chart.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/form-tour.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/formatters.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/desk/hiding-a-doctype.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/list-view.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/module-onboarding.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/number-card.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/onboarding-step.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/page-cache.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/page-js-hook.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/print-format.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/print-permission.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/print-style.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/page-js-hook.md	knowledge/desk/render-include.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/report.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/require.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/roles.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/row-scope.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/select.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-commands-that-create-an-app-a-site-and-an-install.md	knowledge/desk/setup-wizard.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/standard.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/desk/suite-size.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/desk/workspace.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/autoname.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/cancel.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/document/db-set.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/defaults.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/derived-names.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/fixtures-seed-migrate.md	knowledge/document/make-records.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/naming-series.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/rename-doc.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/rename-field.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/role-auto-created.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/document/save.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/submit.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/document/transaction.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/unique-index.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/document/validation.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/permission/accessor.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/permission/docperm.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/permission/hooks.md
+tasks/plan-and-generate-a-new-frappe-app.md	knowledge/permission/permlevel.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/permission/role.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/permission/subledger.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/permissions.md	knowledge/permission/user_permission.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/ui/list-indicator.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/web/form-permissions.md
+tasks/plan-and-generate-a-new-frappe-app.md	references/the-records-that-carry-code-and-what-each-one-runs.md	knowledge/web/form-settings.md
+tasks/publish-a-public-page-or-a-portal-form.md	references/frappe-translation-methodology.md	knowledge/bench/app-over-framework.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/bench/config.md
+tasks/publish-a-public-page-or-a-portal-form.md	references/frappe-translation-methodology.md	knowledge/bench/context.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/bench/csv.md
+tasks/publish-a-public-page-or-a-portal-form.md	references/frappe-translation-methodology.md	knowledge/bench/frontend-boundary.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/bench/gettext.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/bench/lazy.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/bench/merge.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/desk/formatters.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/job/email-queue.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/job/notification-log.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/job/notification.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/job/rate-limiter.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/permission/csrf.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/permission/hooks.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/permission/portal_identity.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/default-site.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/form-permissions.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/form-settings.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/form-write.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/jinja.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/page-files.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/routing.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/status-codes.md
+tasks/publish-a-public-page-or-a-portal-form.md	knowledge/web/web-template.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/custom-docperm.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/custom-json.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/fixtures.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/install-app.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/migrate.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/patches.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/property-setter.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/seeds.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/site-commands.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/bench/standard-json.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/dashboard-chart.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/formatters.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/hiding-a-doctype.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/list-view.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/number-card.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/page-js-hook.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/page-js-hook.md	knowledge/desk/render-include.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/report.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/page.md	knowledge/desk/require.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/select.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/desk/workspace.md
+tasks/ship-a-customisation-to-another-site.md	references/fixtures-seed-migrate.md	knowledge/document/make-records.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/document/rename-doc.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/document/role-auto-created.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/document/validation.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/job/lock.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/permission/docperm.md
+tasks/ship-a-customisation-to-another-site.md	references/the-desk-what-is-metadata-and-what-must-be-code.md	knowledge/ui/list-indicator.md
+tasks/ship-a-customisation-to-another-site.md	knowledge/web/routing.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/bench/property-setter.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/app-page.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/form-tour.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/module-onboarding.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/onboarding-step.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/print-style.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/desk/server-script.md
+tasks/ship-the-first-run-an-app-puts-in-front-of-a-user.md	knowledge/web/web-template.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/api/webhook.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/bench/case.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/bench/records.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/bench/rollback.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/bench/runner.md
+tasks/write-and-run-tests-for-a-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/document/db-set.md
+tasks/write-and-run-tests-for-a-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/document/save.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/document/transaction.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/job/email-queue.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/job/enqueue.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/job/logger.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/job/scheduled-type.md
+tasks/write-and-run-tests-for-a-frappe-app.md	knowledge/job/scheduler.md
+tasks/write-and-run-tests-for-a-frappe-app.md	references/writing-tests-the-frappe-way.md	knowledge/permission/accessor.md

@@ -1,0 +1,89 @@
+{
+  "space": {
+    "$description": "The spacing scale this sketch decides. Every padding and gap in the sketch is one of these seven values.",
+    "hairline": { "$value": "1px", "$type": "dimension", "$description": "Divider rule height in the header band and in a column header." },
+    "xs": { "$value": "6px", "$type": "dimension", "$description": "Gap inside a card, and gap between a column label, its rule and its count." },
+    "sm": { "$value": "8px", "$type": "dimension", "$description": "Gap between header controls, between filter chips, and between cards in a column." },
+    "md": { "$value": "10px", "$type": "dimension", "$description": "Padding inside a column and inside a card." },
+    "lg": { "$value": "12px", "$type": "dimension", "$description": "Gap between columns on the board." },
+    "band": { "$value": "14px", "$type": "dimension", "$description": "Bottom padding of the filter band." },
+    "xl": { "$value": "16px", "$type": "dimension", "$description": "Vertical padding of the header band and top padding of the board." },
+    "edge": { "$value": "20px", "$type": "dimension", "$description": "Horizontal padding of every band, and bottom padding of the board." }
+  },
+  "size": {
+    "$description": "Fixed heights and widths the sketch commits to.",
+    "control_height": { "$value": "28px", "$type": "dimension", "$description": "Header control pill." },
+    "control_width": { "$value": "110px", "$type": "dimension", "$description": "Header control pill; all four are equal." },
+    "chip_height": { "$value": "24px", "$type": "dimension", "$description": "Filter chip." },
+    "tag_height": { "$value": "14px", "$type": "dimension", "$description": "Tag pill on a card." },
+    "column_header_height": { "$value": "13px", "$type": "dimension" },
+    "card_height": { "$value": "62px", "$type": "dimension", "$description": "Title line, meta line and one tag row, with card padding." },
+    "card_title_height": { "$value": "9px", "$type": "dimension", "$description": "Height of the strong placeholder bar standing for the record title." },
+    "card_meta_height": { "$value": "7px", "$type": "dimension", "$description": "Height of the weak placeholder bar standing for the record subtitle." },
+    "column_width": { "$value": "238px", "$type": "dimension", "$description": "Rendered width of one of five equal columns on a 1280 frame; the column grows rather than holding this number." }
+  },
+  "radius": {
+    "$description": "Every corner in the sketch takes one of these. Pill shapes carry exactly half their own height.",
+    "bar": { "$value": "2px", "$type": "dimension", "$description": "Placeholder bars inside a card." },
+    "card": { "$value": "6px", "$type": "dimension" },
+    "tag": { "$value": "7px", "$type": "dimension", "$description": "Half of tag height, so the pill is fully rounded." },
+    "column": { "$value": "8px", "$type": "dimension" },
+    "frame": { "$value": "10px", "$type": "dimension", "$description": "Outer page frame." },
+    "chip": { "$value": "12px", "$type": "dimension", "$description": "Half of chip height, so the chip is fully rounded." },
+    "control": { "$value": "14px", "$type": "dimension", "$description": "Half of control height, so the control is fully rounded." }
+  },
+  "border": {
+    "width": { "$value": "1px", "$type": "dimension", "$description": "The only border width in the sketch. Frame, column and card all carry it." },
+    "frame": { "$value": "#d9d9d9", "$type": "color", "$description": "Outer page frame edge." },
+    "column": { "$value": "#e6e6e6", "$type": "color" },
+    "card": { "$value": "#e8e8e8", "$type": "color" }
+  },
+  "surface": {
+    "frame": { "$value": "#ffffff", "$type": "color", "$description": "Header band, filter band and column body." },
+    "board": { "$value": "#f6f6f6", "$type": "color", "$description": "The grey ground the columns sit on; the only tinted region." },
+    "card": { "$value": "#f9f9f9", "$type": "color" },
+    "control": { "$value": "#f0f0f0", "$type": "color", "$description": "Header control pill at rest." },
+    "chip": { "$value": "#f2f2f2", "$type": "color", "$description": "Filter chip at rest." },
+    "tag": { "$value": "#ededed", "$type": "color", "$description": "Tag pill on a card." },
+    "rule": { "$value": "#ffffff", "$type": "color", "$description": "The hairline that takes the slack between a label and the items at the far edge; it reads as a gap on a white band rather than as a line." }
+  },
+  "content": {
+    "$description": "Placeholder fills standing for text the sketch does not spell out. The pair sets the contrast between a record title and its subtitle.",
+    "strong": { "$value": "#d9d9d9", "$type": "color", "$description": "Record title line." },
+    "weak": { "$value": "#e8e8e8", "$type": "color", "$description": "Record subtitle line." }
+  },
+  "text": {
+    "title": { "$value": "#262626", "$type": "color", "$description": "Page title." },
+    "column_label": { "$value": "#404040", "$type": "color", "$description": "Stage name in a column header." },
+    "count": { "$value": "#808080", "$type": "color", "$description": "Card count in a column header; a step quieter than the label it answers." }
+  },
+  "font": {
+    "family": { "$value": ["Inter", "system-ui", "sans-serif"], "$type": "fontFamily" },
+    "weight_regular": { "$value": 400, "$type": "fontWeight" },
+    "weight_semibold": { "$value": 600, "$type": "fontWeight" },
+    "size_page_title": { "$value": "16px", "$type": "dimension" },
+    "size_column_label": { "$value": "11px", "$type": "dimension" },
+    "size_count": { "$value": "10px", "$type": "dimension" }
+  },
+  "type": {
+    "page_title": {
+      "$value": { "fontFamily": "Inter", "fontSize": "16px", "fontWeight": 600, "lineHeight": "normal" },
+      "$type": "typography",
+      "$description": "The only 16px in the sketch; it names the page and nothing else uses it."
+    },
+    "column_label": {
+      "$value": { "fontFamily": "Inter", "fontSize": "11px", "fontWeight": 600, "lineHeight": "normal" },
+      "$type": "typography"
+    },
+    "column_count": {
+      "$value": { "fontFamily": "Inter", "fontSize": "10px", "fontWeight": 400, "lineHeight": "normal" },
+      "$type": "typography",
+      "$description": "The smallest and quietest text in the sketch, yet the number a reader acts on."
+    }
+  },
+  "grid": {
+    "columns": { "$value": 5, "$type": "number", "$description": "Stage columns the sketch fits on a 1280 frame before a card grows unreadable." },
+    "cards_per_column_visible": { "$value": 9, "$type": "number", "$description": "Cards of card_height that fit in one column at the sketch's frame height before the column scrolls, counting column padding, header and gaps." },
+    "tags_per_card": { "$value": 2, "$type": "number", "$description": "Tag pills a card carries; a third does not fit the card width at these pill widths." }
+  }
+}
