@@ -13,7 +13,7 @@ frappe/__init__.py — _load_app_hooks, get_hooks, append_hook, get_installed_ap
 frappe/app.py — init_request, run_after_request_hooks
 frappe/apps.py — get_apps, get_incomplete_setup_route
 frappe/auth.py — validate_auth_via_hooks
-frappe/boot.py — add_home_page, get_additional_filters_from_hooks, get_bootinfo, remove_apps_with_incomplete_dependencies
+frappe/boot.py — add_home_page, get_additional_filters_from_hooks, get_bootinfo
 frappe/core/api/user_invitation.py — get_allowed_invite_params
 frappe/core/doctype/doctype/doctype.py — DocType.export_types_to_controller
 frappe/core/doctype/domain/domain.py — Domain.get_domain_data
@@ -27,7 +27,6 @@ frappe/core/doctype/user_invitation/user_invitation.py — UserInvitation._get_a
 frappe/desk/doctype/changelog_feed/changelog_feed.py — _app_title, fetch_changelog_feed
 frappe/desk/doctype/global_search_settings/global_search_settings.py — update_global_search_doctypes
 frappe/desk/form/linked_with.py — get_exempted_doctypes
-frappe/desk/page/leaderboard/leaderboard.py — get_leaderboard_config
 frappe/desk/page/setup_wizard/setup_wizard.py — get_setup_complete_hooks, handle_setup_exception, run_setup_success
 frappe/email/__init__.py — get_communication_doctype
 frappe/email/email_body.py — EMail.make, get_footer, get_header, inline_style_in_html
@@ -127,7 +126,6 @@ ignore_links_on_delete: get_dynamic_linked_docs, get_linked_docs
 ignore_translatable_strings_from: _get_ignored_strings
 jenv: execute
 jinja: get_jinja_hooks
-leaderboards: get_leaderboard_config
 look_for_sidebar_json: get_sidebar_items
 make_email_body_message: EMail.make
 naming_series_variables: has_custom_parser
@@ -141,7 +139,7 @@ pdf_generator: get_print
 permission_query_conditions: DatabaseQuery.get_permission_query_conditions
 persistent_cache_keys: clear_cache
 portal_menu_items: get_portal_sidebar_items
-required_apps: get_apps_with_incomplete_dependencies, remove_apps_with_incomplete_dependencies
+required_apps: get_apps_with_incomplete_dependencies
 role_home_page: get_home_page_via_hooks
 scheduler_events: sync_jobs
 setup_wizard_complete: get_setup_complete_hooks

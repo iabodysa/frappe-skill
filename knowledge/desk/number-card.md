@@ -12,8 +12,8 @@ product: frappe
 frappe/desk/doctype/number_card/number_card.py — NumberCard, validate, autoname, on_update, has_permission, get_permission_query_conditions, get_result, get_percentage_difference, calculate_previous_result, create_number_card, create_report_number_card, add_card_to_dashboard, get_cards_for_user
 frappe/desk/doctype/number_card/number_card.json — type, method, document_type, parent_document_type, function, aggregate_function_based_on, report_name, report_field, is_public, is_standard, show_percentage_stats, stats_time_interval
 frappe/permissions.py — get_doctypes_with_read
-frappe/boot.py — get_allowed_report_names
-frappe/config/__init__.py — get_modules_from_all_apps_for_user
+frappe/desk/desk_views.py — DeskViews.get_allowed_report_names
+frappe/utils/modules.py — get_modules_from_all_apps_for_user
 frappe/public/js/frappe/widgets/number_card_widget.js — get_settings, render_card
 
 ## rules

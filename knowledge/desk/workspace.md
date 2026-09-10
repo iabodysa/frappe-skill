@@ -1,7 +1,7 @@
 ---
 name: workspace
 description: A Workspace shows only what its own links child table names, and a Workspace whose roles table is empty is shown to every logged-in user.
-triggers: ["Workspace.is_permitted", "Workspace.is_item_allowed", "Workspace.get_links", "Workspace._prepare_item", "Workspace.get_number_cards", "get_workspace_sidebar_items", "get_custom_reports_and_doctypes", "get_custom_doctype_list", "get_custom_report_list", "Workspace.get_module_wise_workspaces", "last_sequence_id", "roles", "links", "public", "for_user", "hide_custom", "sequence_id", "build_domain_restriced_doctype_cache", "build_domain_restriced_page_cache", "get_active_domains", "DatabaseQuery.prepare_filter_condition", "set_workspace", "Domain Settings", "You need to be Workspace Manager to edit this document", "Content data shoud be a list", "You need to be Workspace Manager to delete a public workspace.", "workspace not showing for a role", "workspace links", "my new screen does not appear anywhere in the side menu", "why is there no link to my list even though the user can open it by url", "the report is missing from the sidebar but it opens if i type the address", "a user with one role can see every section in the menu including payroll", "why does everyone see all the menu sections regardless of their role", "i restricted the section by role and it is still visible to everybody", "after the upgrade all the menu links vanished for normal users", "everything works for the admin account but staff see an empty menu", "why do the links only disappear for some accounts and not for me", "one menu entry is greyed out and i cannot click it", "the trail at the top of the page points to the wrong section", "i changed the order number but the top breadcrumb still shows the old section"]
+triggers: ["Workspace.is_permitted", "Workspace.is_item_allowed", "Workspace.get_links", "Workspace._prepare_item", "Workspace.get_number_cards", "get_workspaces", "get_custom_reports_and_doctypes", "get_custom_doctype_list", "get_custom_report_list", "Workspace.get_module_wise_workspaces", "last_sequence_id", "roles", "links", "public", "for_user", "hide_custom", "sequence_id", "build_domain_restricted_doctype_cache", "build_domain_restricted_page_cache", "get_active_domains", "DatabaseQuery.prepare_filter_condition", "set_workspace", "Domain Settings", "You need to be Workspace Manager to edit this document", "Content data shoud be a list", "You need to be Workspace Manager to delete a public workspace.", "workspace not showing for a role", "workspace links", "my new screen does not appear anywhere in the side menu", "why is there no link to my list even though the user can open it by url", "the report is missing from the sidebar but it opens if i type the address", "a user with one role can see every section in the menu including payroll", "why does everyone see all the menu sections regardless of their role", "i restricted the section by role and it is still visible to everybody", "after the upgrade all the menu links vanished for normal users", "everything works for the admin account but staff see an empty menu", "why do the links only disappear for some accounts and not for me", "one menu entry is greyed out and i cannot click it", "the trail at the top of the page points to the wrong section", "i changed the order number but the top breadcrumb still shows the old section"]
 product: frappe
 ---
 
@@ -9,10 +9,10 @@ product: frappe
 
 ## paths
 
-frappe/desk/desktop.py — Workspace.is_permitted, Workspace.is_item_allowed, Workspace.get_links, Workspace._prepare_item, Workspace.get_number_cards, get_workspace_sidebar_items, get_custom_reports_and_doctypes, get_custom_doctype_list, get_custom_report_list
+frappe/desk/desktop.py — Workspace.is_permitted, Workspace.is_item_allowed, Workspace.get_links, Workspace._prepare_item, Workspace.get_number_cards, get_workspaces, get_custom_reports_and_doctypes, get_custom_doctype_list, get_custom_report_list
 frappe/desk/doctype/workspace/workspace.py — Workspace.get_module_wise_workspaces, last_sequence_id
 frappe/desk/doctype/workspace/workspace.json — roles, links, public, for_user, hide_custom, sequence_id
-frappe/cache_manager.py — build_domain_restriced_doctype_cache, build_domain_restriced_page_cache
+frappe/cache_manager.py — build_domain_restricted_doctype_cache, build_domain_restricted_page_cache
 frappe/core/doctype/domain_settings/domain_settings.py — get_active_domains
 frappe/model/db_query.py — DatabaseQuery.prepare_filter_condition
 frappe/public/js/frappe/views/breadcrumbs.js — set_workspace
@@ -26,7 +26,7 @@ NEVER read is_permitted returning True as proof a Workspace is restricted; it re
 MUST read `domain_restricted_doctypes` as the list a link must BE IN — is_item_allowed renders a DocType link only when the name is in `can_read` AND in `restricted_doctypes`.
 MUST read every Workspace DocType link disappearing at once for every non-Administrator user as the domain cache, and a single link disappearing as a DocPerm.
 NEVER test a domain regression as Administrator; is_item_allowed returns True for Administrator before it reads the cache.
-MUST rebuild the domain cache after a migrate, because build_domain_restriced_doctype_cache returns early under in_patch, in_install, in_migrate, in_import and in_setup_wizard and leaves whatever preceded it.
+MUST rebuild the domain cache after a migrate, because build_domain_restricted_doctype_cache returns early under in_patch, in_install, in_migrate, in_import and in_setup_wizard and leaves whatever preceded it.
 NEVER set sequence_id to move a module breadcrumb; get_module_wise_workspaces orders by `creation` and set_workspace takes index 0 of that list.
 MUST set hide_custom when the links child table is to be the only source of entries.
 MUST read a greyed link as `incomplete_dependencies`, which _prepare_item sets when a DocType named in `item.dependencies` holds no record.

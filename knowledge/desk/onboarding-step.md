@@ -11,7 +11,7 @@ product: frappe
 
 frappe/desk/doctype/onboarding_step/onboarding_step.py — OnboardingStep.before_export, get_onboarding_steps
 frappe/desk/doctype/onboarding_step/onboarding_step.json — action, reference_document, is_single, show_full_form, show_form_tour, form_tour, validate_action, field, value_to_validate, path, callback_title, callback_message, reference_report, report_type, report_description, video_url, intro_video_url, action_label, is_complete, is_skipped
-frappe/desk/desktop.py — update_onboarding_step, get_onboarding_steps
+frappe/desk/desktop.py — update_onboarding_step
 frappe/public/js/frappe/widgets/onboarding_widget.js — show_step, mark_complete, skip_step, update_step_status, activate_next_step, create_entry, show_quick_entry, update_settings, show_form_tour, open_report, go_to_page, show_video, get_first_document
 frappe/public/js/frappe/form/form_tour.js — init
 

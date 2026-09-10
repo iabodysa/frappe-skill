@@ -1,7 +1,7 @@
 ---
 name: csv
 description: An app's translation CSV is read into a plain dict in file order, so the last row for a key wins, and a row that is neither two nor three columns is written to the Error Log and skipped.
-triggers: ["get_translations_from_csv", "get_translation_dict_from_file", "read_csv_file", "update_csv_from_po", "csv_to_po", "translation csv file format", "app csv duplicate key", "some rows in my translation file load and some just do not", "why are half the lines in my translation file ignored", "i added a line to the translation file and nothing happened on the site", "a translation i wrote earlier got replaced by a later line with the same text", "the same english text appears twice in my file and only one of them wins", "the file is inside the app but the site loads no translations from it at all", "where exactly do i put the translation file so it gets picked up", "a broken line in my translation file is skipped without telling me", "how do i put a line break inside a translated text", "one translation keeps overwriting another and there is no error anywhere"]
+triggers: ["get_translations_from_csv", "get_translation_dict_from_file", "read_csv_file", "csv_to_po", "migrate", "translation csv file format", "app csv duplicate key", "some rows in my translation file load and some just do not", "why are half the lines in my translation file ignored", "i added a line to the translation file and nothing happened on the site", "a translation i wrote earlier got replaced by a later line with the same text", "the same english text appears twice in my file and only one of them wins", "the file is inside the app but the site loads no translations from it at all", "where exactly do i put the translation file so it gets picked up", "a broken line in my translation file is skipped without telling me", "how do i put a line break inside a translated text", "one translation keeps overwriting another and there is no error anywhere"]
 product: frappe
 ---
 
@@ -10,7 +10,7 @@ product: frappe
 ## paths
 
 frappe/translate.py — get_translations_from_csv, get_translation_dict_from_file, read_csv_file
-frappe/gettext/translate.py — update_csv_from_po, csv_to_po
+frappe/gettext/translate.py — csv_to_po, migrate
 
 ## rules
 
@@ -42,6 +42,7 @@ Ask of a translation that will not appear: is the key the row builds the key `_(
 column row whose third cell is empty does not build a context key at all; it takes the two column
 branch and lands on the bare source, on top of whatever the bare source already held.
 
-The CSV is the older of the two file formats. `csv_to_po` and `update_csv_from_po` move strings
-between it and the PO file, and both formats load on every request, so a string can be present in one
-and absent from the other without anything failing.
+The CSV is the older of the two file formats and the migration is one-way. `migrate` calls `csv_to_po`
+for every `<app>/translations/<lang>.csv` it finds and writes each row's translation into the matching
+PO catalog entry; nothing in the source writes a CSV back out of a PO file. Both formats still load on
+every request, so a string can be present in one and absent from the other without anything failing.

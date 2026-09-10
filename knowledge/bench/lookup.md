@@ -12,7 +12,7 @@ product: frappe
 frappe/gettext/extractors/utils.py — TRANSLATE_PATTERN, extract_messages_from_code, is_translatable
 frappe/gettext/extractors/python.py — extract
 frappe/translate.py — get_all_translations, get_translations_from_apps, get_translations_from_csv, get_user_translations, clear_cache, MERGED_TRANSLATION_KEY, USER_TRANSLATION_KEY
-frappe/__init__.py — non_translated_string
+frappe/utils/translations.py — _, non_translated_string
 frappe/boot.py — get_bootinfo, __messages
 frappe/public/js/frappe/translate.js — _messages
 frappe/public/js/frappe/request.js — __messages
@@ -45,9 +45,9 @@ MUST expect the client to hold a second, separate copy in `frappe._messages`, fi
 worker whose Redis cache was cleared still shows old text in a tab that has not reloaded, because nothing
 pushes the new dict to an open page.
 NEVER expect a missing key to raise: `frappe._()` on the client returns the original text when
-`frappe._messages[key]` is undefined, and `_()` on the server returns `non_translated_string` when
-`get_all_translations(lang)` has no entry for it; both fail silently to the English source with no
-error and no log line.
+`frappe._messages[key]` is undefined, and server-side `_()` in `frappe/utils/translations.py` returns
+`non_translated_string` when `get_all_translations(lang)` has no entry for it; both fail silently to the
+English source with no error and no log line.
 
 ## values
 

@@ -1,7 +1,7 @@
 ---
 name: build
-description: bench build reads each app's public/build.json, writes bundles into sites/assets/<app>/dist with sites/assets/assets.json as the map from source name to hashed output, links every app's public folder into sites/assets, compiles that app's translations, and downloads frappe's prebuilt assets instead of building them unless --force, --apps or CI is set.
-triggers: ["build", "bundle", "download_frappe_assets", "build_missing_files", "get_assets_link", "fetch_assets", "setup_assets", "generate_assets_map", "make_asset_dirs", "link_assets_dir", "clear_broken_symlinks", "symlink", "check_node_executable", "get_node_env", "get_safe_max_old_space_size", "compile_translations", "get_build_json", "get_build_json_path", "get_apps_list", "write_assets_json", "assets.json", "build.json", "hard-link", "save-metafiles", "bench build produces", "assets not updating", "sites/assets", "the page still shows the old file after i changed it", "my style change never appears in the browser no matter what i do", "why do my edits to the front end not show up on the site", "the new image i added returns not found", "a file i put in the public folder is not reachable from the browser", "why can the site not see a file i just added to the app", "the rebuild finished but nothing about the site changed", "it says done but the framework itself was never rebuilt", "why does rebuilding skip part of the system", "the second rebuild fails with a timeout while another one is running", "our app is ignored completely when everything is rebuilt", "the translated labels never refresh until i do something else", "the page shows the same old thing no matter what i change"]
+description: bench build globs each app's public folder for files named *.bundle.{js,ts,css,sass,scss,less,styl,jsx}, writes bundles into sites/assets/<app>/dist with sites/assets/assets.json as the map from source name to hashed output, links every app's public folder into sites/assets, compiles that app's translations, and downloads frappe's prebuilt assets instead of building them unless --force, --apps or CI is set.
+triggers: ["build", "bundle", "download_frappe_assets", "build_missing_files", "get_assets_link", "fetch_assets", "setup_assets", "generate_assets_map", "make_asset_dirs", "link_assets_dir", "clear_broken_symlinks", "symlink", "check_node_executable", "get_node_env", "get_safe_max_old_space_size", "compile_translations", "get_all_files_to_build", "get_files_to_build", "get_apps_list", "write_assets_json", "assets.json", "hard-link", "save-metafiles", "bench build produces", "assets not updating", "sites/assets", "the page still shows the old file after i changed it", "my style change never appears in the browser no matter what i do", "why do my edits to the front end not show up on the site", "the new image i added returns not found", "a file i put in the public folder is not reachable from the browser", "why can the site not see a file i just added to the app", "the rebuild finished but nothing about the site changed", "it says done but the framework itself was never rebuilt", "why does rebuilding skip part of the system", "the second rebuild fails with a timeout while another one is running", "our app is ignored completely when everything is rebuilt", "the translated labels never refresh until i do something else", "the page shows the same old thing no matter what i change"]
 product: frappe
 ---
 
@@ -14,12 +14,12 @@ frappe/build.py — bundle, setup, download_frappe_assets, build_missing_files, 
 frappe/gettext/translate.py — compile_translations
 frappe/__init__.py — get_all_apps, get_app_source_path
 frappe/utils/synchronization.py — filelock
-esbuild/utils.js — get_build_json, get_build_json_path, get_apps_list, get_public_path
-esbuild/esbuild.js — write_assets_json, get_rebuilt_assets
+esbuild/utils.js — get_apps_list, get_public_path
+esbuild/esbuild.js — get_all_files_to_build, get_files_to_build, update_assets_obj, write_assets_json, get_rebuilt_assets
 
 ## rules
 
-MUST declare every bundle an app ships in `<app>/<app>/public/build.json`; `get_build_json` returns nothing when the file is absent and the app is then built with no entry points and no error.
+MUST name every bundle file `*.bundle.{js,ts,css,sass,scss,less,styl,jsx}` under the app's public folder; `get_all_files_to_build` globs that pattern per app and a file outside it is never bundled, with no error.
 MUST read `sites/assets/assets.json` as the map a page resolves through; esbuild writes the source bundle name against the hashed output path there, and a template asking for a name that file does not carry gets nothing.
 MUST pass `--force` to rebuild frappe itself; with no `--force`, no `--apps` and no `CI` in the environment, `download_frappe_assets` fetches a prebuilt archive keyed on the frappe checkout's `git rev-parse HEAD` and `bundle` is then told to skip frappe entirely.
 MUST expect that download to be silent about failing; `download_frappe_assets` catches every exception, prints it in color and returns False, and the build continues as an ordinary build.

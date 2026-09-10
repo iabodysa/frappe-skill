@@ -1,7 +1,7 @@
 ---
 name: scheduled-type
 description: sync_jobs deletes a Scheduled Job Type only when its method string is absent from hooks, so a method that stops resolving while its hooks line stays keeps its row and fails into its own log on every tick forever.
-triggers: ["ScheduledJobType", "autoname", "validate", "enqueue", "is_event_due", "is_job_in_queue", "rq_job_id", "get_next_execution", "execute", "log_status", "update_scheduler_log", "get_queue_name", "on_trash", "execute_event", "run_scheduled_job", "sync_jobs", "insert_events", "insert_cron_jobs", "insert_event_jobs", "insert_single_event", "clear_events", "scheduler_events", "Scheduled Job Type", "Cron format is required for job types with Cron frequency.", "scheduled job type deleted", "sync_jobs removes stale job", "i removed the job from the code but it still runs every hour", "why does a job i deleted keep firing after a migrate", "the background job fails every time and nobody ever sees an error", "how do i actually stop a recurring job from running", "renaming the function broke the nightly task and nothing warned me", "the scheduled task never shows any log so i cannot tell if it ran", "how do i make something run every night at a specific minute", "two different jobs ended up with the same name and one overwrote the other", "i want a schedule the fixed options cannot express", "the site was down all weekend and the missed runs never caught up", "how do i trigger a scheduled task by hand to test it", "all the history of a job vanished after i cleaned up the code", "the scheduled job never runs and no error ever appears"]
+triggers: ["ScheduledJobType", "validate", "enqueue", "is_event_due", "is_job_in_queue", "rq_job_id", "get_next_execution", "execute", "log_status", "update_scheduler_log", "get_queue_name", "on_trash", "execute_event", "run_scheduled_job", "sync_jobs", "insert_events", "insert_cron_jobs", "insert_event_jobs", "insert_single_event", "clear_events", "scheduler_events", "Scheduled Job Type", "Cron format is required for job types with Cron frequency.", "scheduled job type deleted", "sync_jobs removes stale job", "i removed the job from the code but it still runs every hour", "why does a job i deleted keep firing after a migrate", "the background job fails every time and nobody ever sees an error", "how do i actually stop a recurring job from running", "renaming the function broke the nightly task and nothing warned me", "the scheduled task never shows any log so i cannot tell if it ran", "how do i make something run every night at a specific minute", "two different jobs ended up with the same name and one overwrote the other", "i want a schedule the fixed options cannot express", "the site was down all weekend and the missed runs never caught up", "how do i trigger a scheduled task by hand to test it", "all the history of a job vanished after i cleaned up the code", "the scheduled job never runs and no error ever appears"]
 product: frappe
 ---
 
@@ -9,7 +9,7 @@ product: frappe
 
 ## paths
 
-frappe/core/doctype/scheduled_job_type/scheduled_job_type.py — ScheduledJobType, autoname, validate, enqueue, is_event_due, is_job_in_queue, rq_job_id, get_next_execution, execute, log_status, update_scheduler_log, get_queue_name, on_trash, execute_event, run_scheduled_job, sync_jobs, insert_events, insert_cron_jobs, insert_event_jobs, insert_single_event, clear_events
+frappe/core/doctype/scheduled_job_type/scheduled_job_type.py — ScheduledJobType, validate, enqueue, is_event_due, is_job_in_queue, rq_job_id, get_next_execution, execute, log_status, update_scheduler_log, get_queue_name, on_trash, execute_event, run_scheduled_job, sync_jobs, insert_events, insert_cron_jobs, insert_event_jobs, insert_single_event, clear_events
 frappe/hooks.py — scheduler_events
 
 ## rules
@@ -19,7 +19,8 @@ MUST expect insert_single_event to print a yellow "is not a valid method" line a
 MUST delete the Scheduled Job Type row by hand when the hooks line is already gone and the row remains.
 MUST expect clear_events to skip any row carrying a scheduler_event and any row carrying a server_script, so those are never removed by a migrate.
 MUST declare a cron string under the cron key of scheduler_events for anything the named frequencies cannot express, and MUST expect insert_single_event to update only frequency and cron_format on an existing row.
-MUST expect Scheduled Job Type to be named from the last two dotted segments of its method, so two methods sharing a module name and a function name collide.
+MUST expect Scheduled Job Type to get a random hash name; the doctype declares no autoname and no naming_rule, so set_new_name falls back to `make_autoname("hash", ...)`. Nothing about the name is derived from method, so two methods sharing a module name and a function name cannot collide on it.
+MUST rely on `insert_single_event`'s `frappe.db.exists("Scheduled Job Type", {"method": event})` lookup, not the name, to find an existing row for a method; that lookup is the only place two syncs of the same method are reconciled into one row.
 MUST set create_log to see a run, and MUST expect validate to force it to 1 for every frequency other than All.
 MUST expect execute to catch every exception, roll back and write status Failed to the Scheduled Job Log, so a broken scheduled method never raises anywhere a person is watching.
 MUST expect enqueue to skip a job whose rq_job_id is already QUEUED or STARTED and to log that skip through the scheduler logger only.
@@ -37,7 +38,7 @@ Weekly, Weekly Long: midnight Sunday
 Monthly, Monthly Long: midnight on the first
 Yearly, Annual: midnight on the first of January
 queue: long when the frequency contains Long or Maintenance, else default
-name: the last two dotted segments of method
+name: random hash (no autoname, no naming_rule); the method field, checked by insert_single_event's frappe.db.exists lookup, is what dedups a row
 rq job id: scheduled_job, two colons, the method
 due test: next execution from last_execution, falling back to creation, at or before now
 create_log: forced to 1 unless frequency is All

@@ -9,8 +9,9 @@ product: frappe
 
 ## paths
 
-frappe/public/js/frappe/ui/page.js — frappe.ui.make_app_page, frappe.ui.pages, Page.make, Page.add_main_section, Page.setup_page, Page.setup_sidebar_toggle, Page.update_sidebar_icon, Page.set_indicator, Page.clear_indicator, Page.set_action, Page.set_primary_action, Page.set_secondary_action, Page.clear_action_of, Page.add_menu_item, Page.add_dropdown_item, Page.is_in_group_button_dropdown, Page.clear_btn_group, Page.clear_user_actions, Page.add_action_item, Page.add_actions_menu_item, Page.add_inner_button, Page.remove_inner_button, Page.change_inner_button_type, Page.get_or_add_inner_group_button, Page.clear_inner_toolbar, Page.add_button, Page.add_custom_button_group, Page.add_action_icon, Page.add_help_button, Page.set_title, Page.set_title_sub, Page.add_field, Page.get_form_values, Page.add_view, Page.set_view
-frappe/public/js/frappe/ui/page.html — title-area, title-text, indicator-pill, sub-heading, page-actions, custom-actions, standard-actions, page-icon-group, menu-btn-group, btn-secondary, actions-btn-group, primary-action, page-body, page-content
+frappe/public/js/frappe/ui/page.js — frappe.ui.make_app_page, frappe.ui.pages, Page.make, Page.add_main_section, Page.setup_page, Page.setup_main_sidebar_toggle, Page.set_indicator, Page.clear_indicator, Page.set_action, Page.set_primary_action, Page.set_secondary_action, Page.clear_action_of, Page.add_menu_item, Page.add_dropdown_item, Page.is_in_group_button_dropdown, Page.clear_btn_group, Page.clear_user_actions, Page.add_action_item, Page.add_actions_menu_item, Page.add_inner_button, Page.remove_inner_button, Page.change_inner_button_type, Page.get_or_add_inner_group_button, Page.clear_inner_toolbar, Page.add_button, Page.add_custom_button_group, Page.add_action_icon, Page.add_help_button, Page.set_title, Page.set_title_sub, Page.add_field, Page.get_form_values, Page.add_view, Page.set_view
+frappe/public/js/frappe/ui/page.html — title-area, indicator-pill, page-actions, custom-actions, standard-actions, page-icon-group, menu-btn-group, btn-secondary, actions-btn-group, primary-action, page-body, page-content
+frappe/public/js/frappe/views/breadcrumbs.js — Breadcrumbs.set_list_breadcrumb, Breadcrumbs.set_form_breadcrumb, Breadcrumbs.append_breadcrumb_element, title-text, title-text-form
 frappe/public/js/frappe/views/pageview.js — frappe.views.Page, trigger_page_event
 frappe/public/js/frappe/views/container.js — Container.add_page, Container.change_to
 frappe/public/js/frappe/utils/utils.js — frappe.utils.set_title
@@ -33,7 +34,7 @@ MUST read change_inner_button_type finding no button as success: its `if (btn)` 
 MUST treat `this.inner_toolbar` and `this.custom_actions` as one element — setup_page assigns the same node to both — so clear_inner_toolbar also erases every button add_button and add_custom_button_group put there.
 MUST pass a `standard` of true for a menu item that belongs to the page and false for one that belongs to the current record, because a false item is inserted above a divider and tagged `user-action`, which is the only thing clear_user_actions removes.
 MUST read `this.sidebar` as an empty jQuery set whenever single_column is true; add_main_section renders no `.layout-side-section`, so every append to it, the framework's own skip-to-main-content link included, is dropped without an error.
-NEVER scope a sidebar-toggle query to the page: setup_sidebar_toggle and update_sidebar_icon both select `$(".page-head")` across the whole document, which holds one head per page container ever visited.
+MUST read setup_main_sidebar_toggle as scoped to the page's own wrapper — `this.wrapper.find(".sidebar-toggle-btn.navbar-brand")` — and as forwarding the click to `frappe.app.sidebar`, not to a query across every page head; `update_sidebar_icon` carries no replacement, so no code swaps the toggle icon on click any more.
 MUST translate the string yourself before passing it to set_title or set_indicator; neither calls `__()`, while add_inner_button, add_custom_button_group and set_title's tooltip_label do.
 NEVER build set_indicator's label out of record data without escaping it; the label is interpolated into `.html()`.
 MUST pass `tab_title` to set_title when the browser tab needs different text from the heading, and expect the tab text to come back on its own when the route is revisited, because set_title stores it in frappe.route_titles under the sub path and the router replays it.
@@ -46,8 +47,10 @@ MUST call add_view for a second layout and set_view to swap, rather than emptyin
 ## values
 
 handed over by make_app_page: wrapper, body (= main), container, sidebar, footer, page_form, indicator, page_actions, btn_primary, btn_secondary, menu, menu_btn_group, actions, actions_btn_group, standard_actions, custom_actions, inner_toolbar (= custom_actions), icon_group, $title_area, $sub_title_area, views, fields_dict, current_view
-exists and starts hidden: primary-action, btn-secondary, menu-btn-group, actions-btn-group, page-icon-group, custom-actions, indicator-pill, sub-heading, page-form, layout-footer
-exists and starts visible: title-text, layout-main-section, page-body, layout-side-section unless single_column
+exists and starts hidden: primary-action, btn-secondary, menu-btn-group, actions-btn-group, page-icon-group, custom-actions, page-form, layout-footer
+exists and starts visible: indicator-pill (empty, no hide class in page.html, and nothing calls clear_indicator at construction), layout-main-section, page-body, layout-side-section unless single_column
+title-text: not in page.html; Breadcrumbs.set_list_breadcrumb and Breadcrumbs.set_form_breadcrumb append it (as title-text or title-text-form) into the title-area's breadcrumb `ul`, and set_title only fills an element that already exists there
+sub-heading: gone; $sub_title_area now binds to `this.wrapper.find("h6")`, and page.html ships no `h6`, so set_title_sub is a no-op unless the page's own make_page adds one
 opts read by name: title, icon, single_column, card_layout, make_page, required_libs, disable_sidebar_toggle, parent — and `$.extend(this, opts)` copies every other key onto the page
 primary action: `.primary-action`, btn-primary, rightmost, one button, replaced
 secondary action: `.btn-secondary`, btn-default, left of the Actions group, one button, replaced

@@ -10,9 +10,9 @@ product: frappe
 ## paths
 
 frappe/desk/doctype/module_onboarding/module_onboarding.py — ModuleOnboarding.on_update, ModuleOnboarding.get_steps, ModuleOnboarding.get_allowed_roles, ModuleOnboarding.check_completion, ModuleOnboarding.mark_as_completed, ModuleOnboarding.reset_progress, ModuleOnboarding.before_export, ModuleOnboarding.reset_onboarding
-frappe/desk/doctype/module_onboarding/module_onboarding.json — module, allow_roles, steps, is_complete, success_message, documentation_url
+frappe/desk/doctype/module_onboarding/module_onboarding.json — module, allow_roles, steps, is_complete
 frappe/desk/doctype/onboarding_step_map/onboarding_step_map.json — step
-frappe/desk/desktop.py — get_onboarding_doc, get_onboardings, get_onboarding_steps, update_onboarding_step
+frappe/desk/desktop.py — Workspace.__init__, Workspace.get_onboarding_doc, get_onboarding_data, get_onboarding_step_maps, update_onboarding_step
 frappe/model/sync.py — IMPORTABLE_DOCTYPES, sync_all, sync_for, get_doc_files
 frappe/modules/import_file.py — import_file_by_path, calculate_hash
 frappe/modules/export_file.py — export_to_files, write_document_file
@@ -22,7 +22,8 @@ frappe/desk/page/setup_wizard/setup_wizard.py — enable_onboarding
 ## rules
 
 MUST read `is_complete` as SITE state and never as user state, on the parent and on every step alike: the widget writes the shipped record, so the first user who finishes a step hides the onboarding from everyone else on the site.
-MUST add a Workspace content block of type `onboarding` naming the record, because `onboarding_list` is built only from those blocks and `get_onboardings` returns an empty list without one; no route, no permission and no log reports the absence.
+MUST add a Workspace content block of type `onboarding` naming the record: `Workspace.__init__` builds `self.onboarding_list` only from blocks of that type in `self.doc.content`, and `get_onboarding_doc` returns None on an empty list; no route, no permission and no log reports the absence.
+NEVER expect a standalone `get_onboardings` function to build the workspace's onboarding cards; `Workspace.build_workspace` sets `self.onboardings = {"items": []}` unconditionally, so the workspace card list for onboardings is always empty, and the widget instead fetches its own data per module through the whitelisted `get_onboarding_data(module)`.
 MUST set `enable_onboarding` in System Settings, which the setup wizard sets on completion; `get_onboarding_doc` returns None before it reads anything else.
 MUST list in `allow_roles` every role that should see the onboarding — the table is `reqd`, so unlike a Workspace it cannot ship open — and MUST expect System Manager to see it whether listed or not, because `get_allowed_roles` appends that role.
 NEVER read `check_completion` returning True as proof the database was written: it flips `is_complete` in memory and enqueues `mark_as_completed` with `enqueue_after_commit`, so a worker that never runs leaves the row at 0 while the reader was already told the module is done.
@@ -32,6 +33,7 @@ MUST expect a `bench migrate` to wipe progress whenever the shipped JSON's `modi
 MUST read completing a step as the thing that protects progress from the next migrate — `update_onboarding_step` bumps `modified` — so a site that finished the onboarding keeps it finished until a newer file overtakes that timestamp.
 MUST clear progress through `reset_progress`, the whitelisted method the form button calls; `reset_onboarding` is wired to nothing and calls `frappe.only_for("Administrator")`.
 MUST read a user reporting the onboarding "gone for a day" as the browser: Dismiss writes the title into the `dismissed-onboarding` localStorage key and `is_dismissed` hides the widget for 24 hours, on that browser only, with no server record.
+NEVER look for `success_message` or `documentation_url` on the Module Onboarding record; both fields are gone from the DocType. The success screen text now comes from `this.success`, a widget option the caller sets, not a doctype field, and no field replaces `documentation_url`.
 
 ## values
 
