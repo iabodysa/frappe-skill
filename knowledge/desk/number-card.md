@@ -14,7 +14,7 @@ frappe/desk/doctype/number_card/number_card.json — type, method, document_type
 frappe/permissions.py — get_doctypes_with_read
 frappe/boot.py — get_allowed_report_names
 frappe/config/__init__.py — get_modules_from_all_apps_for_user
-frappe/public/js/frappe/widgets/number_card_widget.js — get_settings, render
+frappe/public/js/frappe/widgets/number_card_widget.js — get_settings, render_card
 
 ## rules
 

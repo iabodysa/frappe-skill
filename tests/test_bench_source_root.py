@@ -25,6 +25,22 @@ def _bench(parent: Path, name: str, version: str, sites: bool = True) -> Path:
 
 class TheBenchRootRefusesRatherThanGuesses(unittest.TestCase):
 
+    def setUp(self):
+        self._cwd = Path.cwd()
+        self._env = {
+            name: os.environ.get(name)
+            for name in ("XDG_CONFIG_HOME", "FRAPPE_BENCH_ROOT")
+        }
+        self.addCleanup(self._restore)
+
+    def _restore(self):
+        os.chdir(self._cwd)
+        for name, value in self._env.items():
+            if value is None:
+                os.environ.pop(name, None)
+            else:
+                os.environ[name] = value
+
     def test_two_checkouts_refuse_by_name_and_one_resolves(self):
         parent = Path(tempfile.mkdtemp()).resolve()
         neutral = Path(tempfile.mkdtemp()).resolve()
