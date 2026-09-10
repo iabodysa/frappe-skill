@@ -27,6 +27,9 @@ NEVER write the row filter by hand as field in (allowed); that is a second imple
 MUST close an empty scoped field at the source by making the field required, never with a filter repeated at every read site.
 MUST set ignore_user_permissions on a Link field that should not narrow the list, because add_user_permissions walks EVERY Link field pointing at the scoped DocType.
 NEVER read frappe.has_permission(doctype, ptype) with no doc as scoped by User Permission; has_user_permission is called only from the doc branch, so a role-only check such as a "create" permission test before a doc exists passes for any Company or Supplier the role is allowed at all.
+MUST expect a different verdict at list level than at document level for the same document when it carries more than one Link field to a scoped doctype. build_match_conditions joins the per-field conditions with `) or (`, so a scope satisfied through ANY one matching Link field passes at list level; check_user_permission_on_link_fields loops every Link field on the document and returns False on the FIRST one out of scope, so the same document can be denied at doc level by a second, unrelated Link field.
+NEVER expect the list-level OR to extend to the doc-level check; a rule that needs "either link field in scope" to hold at doc level as well requires a custom has_permission hook.
+NEVER expect either entry point to walk a second hop through a linked document. Both add_user_permissions and has_user_permission read only meta.get_link_fields() on the doctype's OWN stored fields; a scope value reachable only through an intermediate linked doctype (child -> parent -> grandparent) is invisible to native scoping and needs custom permission-query or has_permission code.
 
 ## values
 

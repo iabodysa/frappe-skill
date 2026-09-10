@@ -19,6 +19,7 @@ MUST expect two rows that agree on every other member of a composite unique inde
 NEVER accept `information_schema` reporting the index, or a test that only asserts the index's column list, as proof the index refuses a duplicate; it refuses one only between rows that both carry a value on every member.
 MUST make every member of a composite unique index NOT NULL — `reqd` where a value is always written, or a Check field, which is already `not null default 0` — or MUST keep the optional column out of the index and express the distinction some other way.
 NEVER expect a composite unique constraint that must key on `docstatus` to be declarable through DocField properties; `get_definition` writes `unique` and `search_index` onto one column each, and `docstatus` is not a DocField — it is a member of `default_fields` in `frappe/model/__init__.py`, with no `unique` or `search_index` checkbox to set.
+MUST expect a Text or Long Text column to get NO db-level unique index at all, in either direction. `DbColumn.get_definition` excludes `column_type in ("text", "longtext")` from the `unique` clause on the create path, and both the add-unique and drop-unique alter paths carry the same exclusion, so `unique:1` on a Text or Long Text field is accepted, produces no constraint, and migrate warns nothing.
 
 ## how
 

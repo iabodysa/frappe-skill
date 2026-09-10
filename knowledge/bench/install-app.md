@@ -16,6 +16,8 @@ frappe/commands/site.py — install_app, uninstall_app
 
 MUST expect the app to be recorded as installed before any of its hooks run. add_to_installed_apps writes the installed_apps global and commits immediately, and after_install, after_app_install, sync_jobs, sync_fixtures, sync_customizations, sync_dashboards and after_sync all run afterwards with nothing wrapping them.
 MUST expect a hook that throws to leave the site reporting the app present while its seed data, fixtures and customizations are partly or entirely absent, and a second bench install-app to refuse because the name is already in the list.
+MUST expect `set_all_patches_as_completed` to INSERT a Patch Log row for every entry in `patches.txt` without calling `execute()` on any of them, and to run before `after_install` and `sync_fixtures`; a fresh `install-app` therefore executes zero patches.
+MUST reach any one-time creation step that must land on a brand-new site (not only on a later migrate) from `after_install`; `patches.txt` alone never runs on a fresh install.
 NEVER put anything a site cannot function without in an after_install seeder; a patch, which is stamped only on completion, and an after_migrate step, which can be re-run, both survive a mid-run failure in a way install does not.
 MUST expect required_apps in hooks to install recursively before the app itself, and an app absent from apps.txt to raise.
 MUST expect frappe.only_for("System Manager") on every app but frappe, and a before_install hook returning False to abandon the install silently.

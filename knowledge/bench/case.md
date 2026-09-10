@@ -24,6 +24,7 @@ MUST use `freeze_time` on the class rather than `freezegun.freeze_time` directly
 MUST use `primary_connection` and `secondary_connection` to act as two users at once; the second connection is opened on first use and `secondary_connection` registers `_rollback_connections` with `addCleanup`, so both connections roll back at the end of that test.
 NEVER assert bare `frappe.ValidationError` on a field carrying `reqd` or on a change after submit. `MandatoryError` and `UpdateAfterSubmitError` both subclass `ValidationError`, and the framework raises them from `_validate_mandatory` and `validate_update_after_submit` on every save, so the assertion passes with the controller rule deleted.
 MUST name a phrase only the controller emits, through `assertRaisesRegex`, before treating an exception assertion as proof of the app's own rule.
+MUST treat `Document._validate_mandatory`, `Document._validate_links`, `Document._validate_selects` and `frappe/model/naming.py:set_new_name` as already enforcing `reqd`, Link existence, Select options and `naming_series` before any app-level test runs; a test that only re-asserts one of these DocField-declared properties duplicates a validator the framework's own suite already covers.
 
 ## values
 

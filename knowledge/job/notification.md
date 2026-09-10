@@ -30,6 +30,10 @@ NEVER read that check as covering the other events; only Value Change carries it
 MUST read `receiver_by_role` as resolving through `get_info_based_on_role` with `ignore_permissions=True`, which walks Has Role to User and checks no permission on `document_type`.
 NEVER read a delivered notification as evidence its audience can open the record; the `/app/<doctype>/<name>` link raises PermissionError on click, nothing logs it, and nothing warns at save time.
 MUST confirm the named role holds a read DocPerm on `document_type` when writing the Notification, because nothing at runtime will.
+MUST read `get_documents_for_today` as evaluating the Notification's own `condition` field exactly ONCE per matched document, and `get_list_of_recipients` as evaluating each Notification Recipient child row's own `condition` ONCE per row against that same document-level context; neither is ever re-evaluated per individual resolved recipient.
+NEVER express a rule that must vary per resolved recipient — "only recipients whose own field matches the document's field" — through either condition; only per-document and per-row gating exist, and recipient population from a matched, ungated row is resolved with no further check.
+MUST read `self.days_in_advance` as one fixed integer read once from the Notification record inside `get_documents_for_today` and applied as `diff_days` to every document matched that run; no field on the watched document can override the lead time per record.
+MUST expect a Days-Before or Days-After Notification to filter `frappe.get_all(self.document_type, ...)` directly on `self.date_changed` as a single column of the parent doctype; it never iterates a child table for a per-row date, so "several expiring items per parent, each with its own date" is invisible to this event type.
 
 ## values
 

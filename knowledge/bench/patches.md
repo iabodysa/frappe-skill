@@ -24,6 +24,7 @@ MUST publish a written idempotency rule with a deliberately resumable patch that
 MUST assert in a patch's own test both that the expected work ran AND that frappe.db.commit was called zero times; the first assertion alone passes on a patch that commits.
 MUST read executed as matching only a Patch Log row with skipped 0, so a patch recorded with skipped 1 and its traceback runs again on the next attempt.
 MUST prefix a patch with `finally:` in patches.txt to defer it to the end of the run; run_single appends it to frappe.flags.final_patches instead of executing it, and the log row is written without that prefix.
+MUST expect every patch — both pre_model_sync and post_model_sync sections, run in that order by run_all — to complete before migrate.py calls sync_fixtures; a patch can never assume that same migrate's fixture sync has already landed.
 NEVER reach for force=True on delete_doc to get past a LinkExistsError. It skips check_if_doc_is_linked, check_if_doc_is_dynamically_linked and check_permission_and_not_submitted outright, so a row still referenced is deleted anyway, a submitted document is deleted without being cancelled, and every reference is left dangling with no error and no log line.
 MUST delete or repoint the dependent rows first, then delete without the flag.
 MUST give a cleanup pass a filter that actually identifies the app's own rows — an owner, a module or a creation timestamp; force is not a filter, and delete_permanently skips add_to_deleted_document so there is no Deleted Document row and no restore path.
